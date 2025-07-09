@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_09_131617) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_09_135129) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,26 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_09_131617) do
     t.string "origin_country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string "name_platform"
+    t.date "exit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "builder_id", null: false
+    t.index ["builder_id"], name: "index_platforms_on_builder_id"
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string "name_studio"
+    t.string "internet_site"
+    t.string "postal_address"
+    t.string "origin_country"
+    t.bigint "builder_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["builder_id"], name: "index_studios_on_builder_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,4 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_09_131617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "platforms", "builders"
+  add_foreign_key "studios", "builders"
 end
