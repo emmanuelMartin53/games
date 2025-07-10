@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_09_135129) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_10_175011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,21 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_09_135129) do
     t.string "origin_country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "type"
+    t.string "description"
+    t.date "exit_date"
+    t.float "price"
+    t.integer "min_player"
+    t.integer "max_player"
+    t.integer "min_age"
+    t.bigint "studio_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["studio_id"], name: "index_games_on_studio_id"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -56,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_09_135129) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "studios"
   add_foreign_key "platforms", "builders"
   add_foreign_key "studios", "builders"
 end
