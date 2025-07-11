@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_11_081215) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_11_092208) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_11_081215) do
     t.index ["builder_id"], name: "index_studios_on_builder_id"
   end
 
+  create_table "user_has_platforms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "platform_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["platform_id"], name: "index_user_has_platforms_on_platform_id"
+    t.index ["user_id"], name: "index_user_has_platforms_on_user_id"
+  end
+
   create_table "user_play_games", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false
@@ -83,6 +92,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_11_081215) do
   add_foreign_key "games", "studios"
   add_foreign_key "platforms", "builders"
   add_foreign_key "studios", "builders"
+  add_foreign_key "user_has_platforms", "platforms"
+  add_foreign_key "user_has_platforms", "users"
   add_foreign_key "user_play_games", "games"
   add_foreign_key "user_play_games", "users"
 end
