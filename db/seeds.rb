@@ -11,14 +11,23 @@
 @user = User.new(email:"manu@gmail.com", password:"ouioui", first_name:"Manu")
 @user.save
 
-@builder = Builder.new(name: "Sony", internet_site: "https://sony.com", postal_address:"tokyo", origin_country: "JAPAN")
+@builder = Builder.new(name: "SONY", internet_site: "https://playstation.com/fr-fr/", postal_address:"Sony Interactive Entertainment LLC, 2207 Bridgepointe Pkwy, Foster City, CA 94404, États-Unis - MapQuest.", origin_country: "JAPAN")
+@builder.save
+
+@builder = Builder.new(name: "NINTENDO", internet_site: "https://nintendo.com/fr-fr/", postal_address:"Nintendo Co., Ltd. (11-1 Hokotate-cho, Kamitoba, Minami-ku, Kyoto 601-8501.", origin_country: "JAPAN")
 @builder.save
 
 @platform = Platform.new(name_platform: "PS5", exit_date: "2020-11-19", builder_id: @builder.id)
 @platform.save
+@platform = Platform.new(name_platform: "Swiich", exit_date: "2017-06-23", builder_id: @builder.id)
+@platform.save
 
 @studio = Studio.new(name_studio: "Naughty Dogs", internet_site: "https://naugtydogs.com", postal_address: "Los Angeles", origin_country: "USA", builder_id: @builder.id)
 @studio.save
+@studio = Studio.new(name_studio: "Monolith software", internet_site: "https://monolithsoft.com", postal_address: "Kyoto", origin_country: "JAPON", builder_id: @builder.id)
+@studio.save
 
 @game = Game.new(title: "The last of us part 2", type_game: "Aventure", description: "histoire de zombi et de survie", exit_date: "2019-04-20", price: 79, min_player: 1, max_player: 1, min_age: 18, studio_id: @studio.id)
+@game.save
+@game = Game.new(title: "Xenoblade", type_game: "RPG", description: "histoire d'un jeu de role et de survie", exit_date: "2019-02-20", price: 79, min_player: 1, max_player: 1, min_age: 18, studio_id: @studio.id)
 @game.save
