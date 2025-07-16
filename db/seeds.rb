@@ -11,7 +11,10 @@
 @user = User.new(email:"manu@gmail.com", password:"ouioui", first_name:"Manu")
 @user.save
 
-@builder = Builder.new(name: "Sony", internet_site: "https://sony.com", postal_address:"tokyo", origin_country: "JAPAN")
+@builder = Builder.new(name: "SONY", internet_site: "https://playstation.com/fr-fr/", postal_address:"Sony Interactive Entertainment LLC, 2207 Bridgepointe Pkwy, Foster City, CA 94404, États-Unis - MapQuest.", origin_country: "JAPAN")
+@builder.save
+
+@builder = Builder.new(name: "NINTENDO", internet_site: "https://nintendo.com/fr-fr/", postal_address:"Nintendo Co., Ltd. (11-1 Hokotate-cho, Kamitoba, Minami-ku, Kyoto 601-8501.", origin_country: "JAPAN")
 @builder.save
 @builder = Builder.new(name: "Nintendo", internet_site: "https://nintendo.com", postal_address:"kyoto", origin_country: "JAPAN")
 @builder.save

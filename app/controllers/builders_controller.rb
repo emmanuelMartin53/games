@@ -10,8 +10,4 @@ class BuildersController < ApplicationController
     @builders = Builder.all
   end
 
-  def show
-    @builder = Builder.find(params[:id])
-  end
-
 end
