@@ -27,8 +27,11 @@
 @studio.save
 @studio = Studio.new(name_studio: "Monolith software", internet_site: "https://www.monolithsoft.co.jp/", postal_address: "Kyoto", origin_country: "JAPON", builder_id: 2)
 @studio.save
+@studio = Studio.new(name_studio: "Guerilla Games", internet_site: "https://www.guerilla.com/", postal_address: "Amsterdam", origin_country: "Pays-Bas", builder_id: 1)
+@studio.save
 
 @game = Game.new(title: "The last of us part 2", type_game: "Aventure", description: "histoire de zombi et de survie", exit_date: "2019-04-20", price: 79, min_player: 1, max_player: 1, min_age: 18, studio_id: @studio.id)
 @game.save
 @game = Game.new(title: "Xenoblade", type_game: "RPG", description: "histoire d'un jeu de role et de survie", exit_date: "2019-02-20", price: 79, min_player: 1, max_player: 1, min_age: 18, studio_id: @studio.id)
 @game.save
+@game = Game.new(title: "Horizon zero dawn", type_game: "RPG", dexscription: "Aloy dans un monde apocalyptique", exit_date: "17-03-2017", price: 79, min_player:1, max_player:1, min_age: 16, studio_id)
