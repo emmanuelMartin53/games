@@ -3,9 +3,6 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
   <% @builders.each do |builder| %>
     <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-
-     <!-- <img src="https://source.unsplash.com/featured/?apartment" class="w-full h-48 object-cover" alt="flat image">-->
-
       <div class="p-4">
         <h2 class="text-lg font-semibold"><%= builder.name %></h2>
                <div class="flex justify-between items-center mt-3">
@@ -14,7 +11,7 @@
 
           </p>
         </div>
-        <p class="text-gray-600"><%=link_to "Accéder au site", builder.internet_site %></p>
+        <p class="text-gray-600"><%=link_to "Accéder au", builder.internet_site %></p>
       </div>
     </div>
   <% end %>
