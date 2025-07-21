@@ -1,0 +1,24 @@
+<h1 class="text-3xl font-bold mb-6">All Games</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <% @games.each do |game| %>
+    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+
+     <!-- <img src="https://source.unsplash.com/featured/?apartment" class="w-full h-48 object-cover" alt="flat image">-->
+
+      <div class="p-4">
+        <h2 class="text-lg font-semibold"><%= game.title%></h2>
+               <div class="flex justify-between items-center mt-3">
+          <p class="text-md font-bold"><%= game.type_game %></p>
+          <p class="text-md font-bold"><%= game.description%></p>
+          <p class="text-md font-bold"><%= game.price%>€</p>
+          <p class="text-md font-bold"><%= game.min_player%></p>
+          <p class="text-md font-bold"><%= game.max_player%></p>
+          <p class="text-md font-bold">age minimum: <%= game.min_age%> ans</p>
+          <p class="text-md font-bold"><%= game.studio.id%></p>
+        </div>
+        <p class="text-gray-600"><%=link_to "Accéder au site", studios_path %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
