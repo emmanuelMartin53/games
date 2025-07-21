@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :builders
-  resources :studios
+  
+  resources :studios do
+    resources :games
+  end
 
-  resources :games
+  resources :games do
+    resources :studios
+  end
 end

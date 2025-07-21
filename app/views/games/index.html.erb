@@ -1,24 +1,23 @@
-<h1 class="text-3xl font-bold mb-6">All Games</h1>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+<div class="card">
+<h1 class="card-title">Games</h1>
   <% @games.each do |game| %>
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-
-     <!-- <img src="https://source.unsplash.com/featured/?apartment" class="w-full h-48 object-cover" alt="flat image">-->
-
-      <div class="p-4">
-        <h2 class="text-lg font-semibold"><%= game.title%></h2>
-               <div class="flex justify-between items-center mt-3">
-          <p class="text-md font-bold"><%= game.type_game %></p>
-          <p class="text-md font-bold"><%= game.description%></p>
-          <p class="text-md font-bold"><%= game.price%>€</p>
-          <p class="text-md font-bold"><%= game.min_player%></p>
-          <p class="text-md font-bold"><%= game.max_player%></p>
-          <p class="text-md font-bold">age minimum: <%= game.min_age%> ans</p>
-          <p class="text-md font-bold"><%= game.studio.id%></p>
+    <div class="card-game">
+      <div class="card-game-infos">
+        <div>
+          <h2><%= game.title %></h2>
+          <p><%= game.type_game %></p>
         </div>
-        <p class="text-gray-600"><%=link_to "Accéder au site", studios_path %></p>
+        <div>
+          <h2><%= game.description%></h2>
+          <p><%= game.min_player%> joueur</p>
+          <p>Age minimum: <%=game.min_age%> ans</p>
+        </div>
+        <h2 class="card-game-pricing"><%=game.price%>€</h2>
+        <%=link_to "#{game.studio.name_studio}", game.studio.internet_site , class:"btn btn-gradient", target: :_blank %>
       </div>
     </div>
-  <% end %>
+    <% end%>
+    <%=link_to "Accéder à tous les studios", studios_path , class:"btn btn-flat", target: :_blank %>
 </div>

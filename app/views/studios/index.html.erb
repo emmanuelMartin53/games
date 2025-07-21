@@ -1,27 +1,20 @@
 
 
-
-
-
-<h1 class="text-3xl font-bold mb-6">Find a Studio</h1>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="card">
+<h1 class="card-title">Studios</h1>
   <% @studios.each do |studio| %>
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-
-     <!-- <img src="https://source.unsplash.com/featured/?apartment" class="w-full h-48 object-cover" alt="flat image">-->
-
-      <div class="p-4">
-        <h2 class="text-lg font-semibold"><%= studio.name_studio %></h2>
-               <div class="flex justify-between items-center mt-3">
-          <p class="text-md font-bold"><%= studio.postal_address %></p>
-          <p class="text-md font-bold"><%= studio.origin_country %></p>
-          <p class="text-md font-bold"><%= studio.builder.name %></p>
-
-          </p>
+    <div class="card-game">
+      <div class="card-game-infos">
+        <div>
+          <h2><%= studio.name_studio %></h2>
+          <p><%= studio.postal_address %></p>
+          <p><%= studio.origin_country %></p>
         </div>
-        <p class="text-gray-600"><%=link_to "Accéder au site", studio.internet_site %></p>
+        <div>
+          <%=link_to "Accéder au site", studio.internet_site , class:"btn btn-gradient", target: :_blank %>
+        </div>
       </div>
     </div>
-  <% end %>
+    <% end%>
+     <%=link_to "Accéder aux jeux", games_path , class:"btn btn-flat", target: :_blank %>
 </div>
