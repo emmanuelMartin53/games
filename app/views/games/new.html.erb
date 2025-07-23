@@ -11,7 +11,7 @@
               <%= f.input :min_player, label: "Nombre de joueurs" %>
               <%= f.input :min_age, label: "Age Minimuum" %>
               <%= f.input :price, label: "Prix" %>
-              <%= f.input :studio_id, collection: Studio.all.pluck(:name_studio, :id), prompt: "Sélectionne un studio", label: "Nom du studio de développemnt" %>
+              <%= f.input :studio_id, collection: Studio.all.pluck(:name, :id), prompt: "Sélectionne un studio", label: "Nom du studio de développemnt" %>
               <div class="d-grid gap-2 mt-3 py-3">
                   <%= f.button :submit, "Ajouter", class: "btn btn-flat text-white py-3 rounded-pill" %>
               </div>

@@ -6,7 +6,7 @@
     <div class="card-game">
       <div class="card-game-infos">
         <div>
-          <h2><%= studio.name_studio %></h2>
+          <h2><%= studio.name %></h2>
           <p><%= studio.postal_address %></p>
           <p><%= studio.origin_country %></p>
         </div>
@@ -17,4 +17,5 @@
     </div>
     <% end%>
      <%=link_to "Accéder aux jeux", games_path , class:"btn btn-flat"%>
+     <%=link_to "Ajouter un studio de développement", new_studio_path , class:"btn btn-success"%>
 </div>
