@@ -76,6 +76,22 @@
 }
 
 .btn-flat:hover {
-  background: $light-red;
+  background:$light-red;
+  color: white;
+}
+
+
+.btn-success {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #5E936C;
+  transition: background 0.3s ease;
+  width: 500px;
+  margin: auto;
+}
+
+.btn-success:hover {
+  background:#3E5F44;
   color: white;
 }

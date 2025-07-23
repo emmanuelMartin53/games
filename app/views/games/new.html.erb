@@ -1,0 +1,23 @@
+<h1 class="text-center fw-bold text-black p">Ajouter un jeu</h1>
+<div class="container py-4 margin-bottom-10">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <%= simple_form_for @game do |f| %>
+              <%= f.input :title, label: "Titre du jeu"%>
+              <%= f.input :type_game, label: "Type de jeu" %>
+              <%= f.input :description, label: "description" %>
+              <%= f.input :exit_date, label: "sortie du jeu" %>
+              <%= f.input :min_player, label: "nombre de joueurs" %>
+              <%= f.input :min_age, label: "Age Minimuum" %>
+              <%= f.input :price, label: "prix" %>
+              <%= f.input :studio_id, collection: Studio.all.pluck(:name_studio, :id), prompt: "Sélectionne un studio", label: "Nom du studio de développemnt" %>
+              <div class="d-grid gap-2 mt-3 py-3">
+                  <%= f.button :submit, "Ajouter", class: "btn btn-flat text-white py-3 rounded-pill" %>
+              </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
