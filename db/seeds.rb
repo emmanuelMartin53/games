@@ -23,11 +23,11 @@
 @platform = Platform.new(name_platform: "XBOX Series", exit_date: "2019-11-21", builder_id: @builder.id)
 @platform.save
 
-@studio = Studio.new(name_studio: "Naughty Dogs", internet_site: "https://www.naughtydog.com/", postal_address: "Los Angeles", origin_country: "USA", builder_id: 1)
+@studio = Studio.new(name: "Naughty Dogs", internet_site: "https://www.naughtydog.com/", postal_address: "Los Angeles", origin_country: "USA", builder_id: 1)
 @studio.save
-@studio = Studio.new(name_studio: "Monolith software", internet_site: "https://www.monolithsoft.co.jp/", postal_address: "Kyoto", origin_country: "JAPON", builder_id: 2)
+@studio = Studio.new(name: "Monolith software", internet_site: "https://www.monolithsoft.co.jp/", postal_address: "Kyoto", origin_country: "JAPON", builder_id: 2)
 @studio.save
-@studio = Studio.new(name_studio: "Guerilla Games", internet_site: "https://www.guerrilla-games.com/", postal_address: "Amsterdam", origin_country: "Pays-Bas", builder_id: 1)
+@studio = Studio.new(name: "Guerilla Games", internet_site: "https://www.guerrilla-games.com/", postal_address: "Amsterdam", origin_country: "Pays-Bas", builder_id: 1)
 @studio.save
 
 @game = Game.new(title: "The last of us part 2", type_game: "Aventure", description: "histoire de zombi et de survie", exit_date: "2019-04-20", price: 79.99, min_player: 1, max_player: 1, min_age: 18, studio_id: 1)

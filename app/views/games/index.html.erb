@@ -13,11 +13,10 @@
           <p>Age minimum: <%=game.min_age%> ans</p>
         </div>
         <h2 class="card-game-pricing"><%=game.price%>€</h2>
-        <%=link_to "#{game.studio.name_studio}", game.studio.internet_site , class:"btn btn-gradient", target: :_blank %>
+        <%=link_to "#{game.studio.name}", game.studio.internet_site , class:"btn btn-gradient", target: :_blank %>
       </div>
     </div>
     <% end%>
-        <%=link_to "Accéder à tous les studios", studios_path , class:"btn btn-flat"%>
-        <%=link_to "Ajouter un jeu", new_game_path , class:"btn btn-success"%>
-
+    <%=link_to "Accéder à tous les studios", studios_path , class:"btn btn-flat" %>
+    <%=link_to "Ajouter un jeu", new_game_path , class:"btn btn-success" %>
 </div>
