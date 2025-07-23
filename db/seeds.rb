@@ -32,7 +32,7 @@
 
 @game = Game.new(title: "The last of us part 2", type_game: "Aventure", description: "histoire de zombi et de survie", exit_date: "2019-04-20", price: 79.99, min_player: 1, max_player: 1, min_age: 18, studio_id: 1)
 @game.save
-@game = Game.new(title: "Xenoblade", type_game: "RPG", description: "histoire d'un jeu de role et de survie", exit_date: "2019-02-20", price: 79.99, min_player: 1, max_player: 1, min_age: 18, studio_id: 2)
+@game = Game.new(title: "Xenoblade Chronicles", type_game: "RPG", description: "histoire d'un jeu de role et de survie", exit_date: "2019-02-20", price: 79.99, min_player: 1, max_player: 1, min_age: 18, studio_id: 2)
 @game.save
 @game = Game.new(title: "Horizon zero dawn", type_game: "RPG", description: "Aloy dans un monde apocalyptique", exit_date: "17-03-2017", price: 79.99, min_player:1, max_player:1, min_age: 16, studio_id: 3)
 @game.save
