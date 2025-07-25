@@ -1,116 +1,122 @@
+
+// 📦 Conteneur principal
 .card {
-  background: #ffffff;
+  background: $color-white;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: $shadow-default;
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
+
+  .card-title {
+    font-size: 2rem;
+    color: $color-dark;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  // 🕹️ Carte d'un jeu
+  .card-game {
+    background-color: $color-light-gray;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: $shadow-hover;
+    }
+
+    .card-game-infos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $color-dark;
+      }
+
+      p {
+        margin: 0.2rem 0;
+        color: $color-medium;
+      }
+
+      .description {
+        font-style: italic;
+      }
+
+      .card-link {
+        margin: auto;
+      }
+    }
+  }
+
+  // 🎮 Boutons en bas
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  // Boutons génériques
+  .btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    display: inline-block;
+
+    &.btn-gradient {
+      background: $btn-gradient;
+    }
+
+    &.btn-platform {
+      background-color: #3498db;
+
+      &:hover {
+        background-color: darken(#3498db, 10%);
+      }
+    }
+
+    &.btn-game {
+      background-color: #2ecc71;
+
+      &:hover {
+        background-color: darken(#2ecc71, 10%);
+      }
+    }
+
+    &.btn-add {
+      background-color: $color-accent;
+
+      &:hover {
+        background-color: $color-accent-hover;
+      }
+    }
+  }
 }
 
-.card-title {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-  text-align: center;
+// 📱 Responsive design
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+
+    .card-game-infos {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .card-link {
+        margin-top: 1rem;
+      }
+    }
+  }
 }
-
-.card-game {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fafafa;
-}
-
-.card-game:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.card-game-infos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-game-infos h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #222;
-}
-
-.card-game-infos p {
-  margin: 0.2rem 0;
-  color: #666;
-}
-
-.btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-gradient {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(to right, #2575fc, #6a11cb);
-}
-
-
-
-.btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: background 0.3s ease;
-  display: inline-block;
-}
-
-/* Bouton 1 - Plateformes (bleu) */
-.btn-platform {
-  background-color: #3498db;
-}
-
-.btn-platform:hover {
-  background-color: #2980b9;
-}
-
-/* Bouton 2 - Jeux (vert) */
-.btn-game {
-  background-color: #2ecc71;
-}
-
-.btn-game:hover {
-  background-color: #27ae60;
-}
-
-/* Bouton 3 - Ajouter (violet) */
-.btn-add {
-  background-color: #9b59b6;
-}
-
-.btn-add:hover {
-  background-color: #8e44ad;
-}
-
-
-
-.card-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-
-
-

@@ -1,23 +1,35 @@
-<div class="card">
-<h1 class="card-title">Games</h1>
+<div class="card" aria-labelledby="games-title">
+  <h1 id="games-title" class="card-title">Jeux disponibles</h1>
+
   <% @games.each do |game| %>
-    <div class="card-game">
-      <div class="card-game-infos">
-        <div>
-          <h2><%= game.title %></h2>
-          <p><%= game.type_game %></p>
-        </div>
-        <div>
-          <h2><%= game.description%></h2>
-          <p><%= game.min_player%> joueur</p>
-          <p>Age minimum: <%=game.min_age%> ans</p>
-        </div>
-        <h2 class="card-game-pricing"><%=game.price%>€</h2>
-        <%=link_to "#{game.studio.name}", game.studio.internet_site , class:"btn btn-gradient", target: :_blank %>
+    <div class="card-game" aria-label="<%= "Fiche du jeu #{game.title}" %>">
+      <div class="card-game-header">
+        <h2 class="card-game-title"><%= game.title %></h2>
+        <p class="card-game-type"><%= game.type_game %></p>
+      </div>
+
+      <div class="card-game-body">
+        <p class="description"><%= sanitize(game.description) %></p>
+        <ul class="card-game-details">
+          <li><%= pluralize(game.min_player, 'joueur') %></li>
+          <li>Âge minimum : <%= game.min_age %> ans</li>
+          <li class="card-game-pricing"><%= number_to_currency(game.price, unit: "€", format: "%n %u") %></li>
+        </ul>
+      </div>
+
+      <div class="card-game-footer">
+        <%= link_to game.studio.name,
+                    game.studio.internet_site,
+                    class: "btn btn-gradient",
+                    target: :_blank,
+                    rel: "noopener",
+                    aria: { label: "Site de #{game.studio.name}" } %>
       </div>
     </div>
-    <% end%>
-      <div class="card-buttons">
-          <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add" %>
-      </div>
+  <% end %>
+
+  <div class="card-buttons">
+    <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform", aria: { label: "Voir les plateformes de jeux" } %>
+    <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add", aria: { label: "Ajouter un nouveau jeu" } %>
+  </div>
 </div>
