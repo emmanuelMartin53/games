@@ -15,12 +15,14 @@
 @builder.save
 @builder = Builder.new(name: "NINTENDO", internet_site: "https://nintendo.com/fr-fr/", postal_address:"Nintendo Co., Ltd. (11-1 Hokotate-cho, Kamitoba, Minami-ku, Kyoto 601-8501.", origin_country: "JAPAN")
 @builder.save
+@builder = Builder.new(name: "MICROSOFT", internet_site: "https://xbox.com/fr-fr/", postal_address:"1 Microsoft Way, Redmond, WA 98052, États-Unis", origin_country: "USA")
+@builder.save
 
-@platform = Platform.new(name_platform: "PS5", exit_date: "2020-11-26", builder_id: 1)
+@platform = Platform.new(name: "PS5", exit_date: "2020-11-26", builder_id: 1)
 @platform.save
-@platform = Platform.new(name_platform: "Swiich", exit_date: "2017-06-23", builder_id: 2)
+@platform = Platform.new(name: "Swiich 2", exit_date: "2017-06-05", builder_id: 2)
 @platform.save
-@platform = Platform.new(name_platform: "XBOX Series", exit_date: "2019-11-21", builder_id: @builder.id)
+@platform = Platform.new(name: "XBOX Series", exit_date: "2019-11-21", builder_id: 3)
 @platform.save
 
 @studio = Studio.new(name: "Naughty Dogs", internet_site: "https://www.naughtydog.com/", postal_address: "Los Angeles", origin_country: "USA", builder_id: 1)

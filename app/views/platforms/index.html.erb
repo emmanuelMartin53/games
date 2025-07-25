@@ -1,0 +1,21 @@
+<div class="card">
+  <h1 class="card-title">Plateformes de jeu</h1>
+
+  <% @platforms.each do |platform| %>
+    <div class="card-game">
+      <div class="card-game-infos">
+        <div>
+          <h2><%= platform.name.upcase %></h2>
+          <p><%= platform.exit_date %></p>
+          <p><%= platform.builder.name %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="card-buttons">
+    <%= link_to "Accéder aux jeux", games_path, class: "btn btn-game" %>
+    <%= link_to "Ajouter un studio de développement", new_studio_path, class: "btn btn-add" %>
+    <%= link_to "Ajouter une console de jeux", new_platform_path, class: "btn btn-platform" %>
+  </div>
+</div>

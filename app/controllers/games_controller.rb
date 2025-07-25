@@ -29,10 +29,10 @@ class GamesController < ApplicationController
 
 
 
-  private
+  # private
 
-    def game_params
-      params.require(:game).permit(:title, :type_game, :description, :exit_date, :price, :min_players, :min_age)
-    end
+  #   ender def game_params
+  #     params.require(:game).permit(:title, :type_game, :description, :exit_date, :price, :min_players, :min_age)
+  #   end
 
 end

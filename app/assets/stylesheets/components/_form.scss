@@ -1,0 +1,123 @@
+// =============================
+// Formulaire "Ajouter un studio"
+// =============================
+
+.studio-form {
+  padding: 2rem 1rem;
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+    padding-bottom: 1.5rem;
+  }
+
+  .form-container {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .simple_form {
+    input,
+    select {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .btn-submit {
+      background-color: #9b59b6;
+      color: #fff;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 9999px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #8e44ad;
+      }
+    }
+  }
+
+  .alert-danger {
+    background-color: #ffe6e6;
+    color: #c0392b;
+    border-left: 5px solid #e74c3c;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+  }
+}
+
+
+// =============================
+// Formulaire "Ajouter une plateforme"
+// =============================
+
+.platform-form {
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+    padding-bottom: 1.5rem;
+  }
+
+  .form-container {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .simple_form {
+    input,
+    select {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .btn-platform {
+      background-color: #3498db;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+
+  .alert-danger {
+    background-color: #ffe6e6;
+    color: #c0392b;
+    border-left: 5px solid #e74c3c;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+  }
+}

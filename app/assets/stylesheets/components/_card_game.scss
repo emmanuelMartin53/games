@@ -1,114 +1,116 @@
 .card {
-  width: 1000px;
-  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
 }
+
 .card-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .card-game {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15x rgba(0,0,0,0.2);
-  margin-bottom: 25px;
-}
-/*
-.card-game > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-*/
-.card-game h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fafafa;
 }
 
-.card-game p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+.card-game:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
-
-.card-game .card-game-infos {
-  padding: 16px;
+.card-game-infos {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-
+  align-items: center;
 }
 
-.card-game-infos .card-game-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40p
+.card-game-infos h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
 }
 
+.card-game-infos p {
+  margin: 0.2rem 0;
+  color: #666;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
 .btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
-  transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
-  color: white;
+  background: linear-gradient(to right, #2575fc, #6a11cb);
 }
 
 
-.btn-flat {
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
   color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background: $dark-red;
+  font-weight: bold;
   transition: background 0.3s ease;
-  width: 500px;
-  margin: auto;
+  display: inline-block;
 }
 
-.btn-flat:hover {
-  background:$light-red;
-  color: white;
+/* Bouton 1 - Plateformes (bleu) */
+.btn-platform {
+  background-color: #3498db;
+}
+
+.btn-platform:hover {
+  background-color: #2980b9;
+}
+
+/* Bouton 2 - Jeux (vert) */
+.btn-game {
+  background-color: #2ecc71;
+}
+
+.btn-game:hover {
+  background-color: #27ae60;
+}
+
+/* Bouton 3 - Ajouter (violet) */
+.btn-add {
+  background-color: #9b59b6;
+}
+
+.btn-add:hover {
+  background-color: #8e44ad;
 }
 
 
-.btn-success {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background: #5E936C;
-  transition: background 0.3s ease;
-  width: 500px;
-  margin: auto;
-}
 
-.btn-success:hover {
-  background:#3E5F44;
-  color: white;
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 
 
-.btn-success {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background: $primary;
-  transition: background 0.3s ease;
-  width: 500px;
-  margin: auto;
-}
 
-.btn-success:hover {
-  background: darkblue;
-  color: white;
-}
