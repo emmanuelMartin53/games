@@ -16,14 +16,12 @@
         </div>
       </div>
     <% end %>
-
   </div>
+      <div class="card-buttons">
+        <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform" %>
+        <%= link_to "Accéder aux jeux", games_path, class: "btn btn-game" %>
+        <%= link_to "Ajouter un studio", new_studio_path, class: "btn btn-add" %>
+      </div>
 </div> <!-- Fermeture correcte de .card -->
 
 <!-- BOUTONS bien positionnés sous la carte -->
-
-<div class="card-buttons">
-  <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform" %>
-  <%= link_to "Accéder aux jeux", games_path, class: "btn btn-game" %>
-  <%= link_to "Ajouter un studio de développement", new_studio_path, class: "btn btn-add" %>
-</div>

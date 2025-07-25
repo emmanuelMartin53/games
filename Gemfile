@@ -53,6 +53,7 @@ gem "devise"
 gem "cloudinary"
 gem "geocoder"
 gem "country_select"
+gem 'rails-i18n'
 
 
 group :development, :test do

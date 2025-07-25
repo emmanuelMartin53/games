@@ -1,5 +1,5 @@
 <div class="card" aria-labelledby="games-title">
-  <h1 id="games-title" class="card-title">Jeux disponibles</h1>
+  <h1 id="games-title" class="card-title">Mes jeux</h1>
 
   <% @games.each do |game| %>
     <div class="card-game" aria-label="<%= "Fiche du jeu #{game.title}" %>">
@@ -13,6 +13,7 @@
         <ul class="card-game-details">
           <li><%= pluralize(game.min_player, 'joueur') %></li>
           <li>Âge minimum : <%= game.min_age %> ans</li>
+          <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
           <li class="card-game-pricing"><%= number_to_currency(game.price, unit: "€", format: "%n %u") %></li>
         </ul>
       </div>
