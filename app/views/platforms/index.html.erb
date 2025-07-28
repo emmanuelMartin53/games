@@ -14,12 +14,9 @@
   <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Ajouter un studio ", new_studio_path, class: "btn btn-add" %>
-    <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-platform" %>
-  </div>
-
-  <div class="card-buttons">
-    <%= link_to "Ajouter un jeu vidéo", games_path, class: "btn btn-game" %>
+    <%= link_to "Acceder aux studios ", studios_path, class: "btn btn-access" %>
+    <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-add" %>
+    <%= link_to "Acceder aux jeux", games_path, class: "btn btn-access" %>
   </div>
 
 </div>

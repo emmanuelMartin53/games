@@ -12,7 +12,7 @@
       background: $btn-gradient;
     }
 
-    &.btn-platform {
+    &.btn-access {
       background-color: #3498db;
 
       &:hover {
@@ -34,5 +34,8 @@
       &:hover {
         background-color: $color-accent-hover;
       }
+    }
+    &.btn-return {
+      background-color: $dark-red;
     }
   }

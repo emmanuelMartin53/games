@@ -1,4 +1,4 @@
-<div class="studio-form">
+<div class="form">
   <h1>Ajouter un Studio</h1>
 
   <% if @studio.errors.any? %>
@@ -15,7 +15,7 @@
   <div class="container py-4">
     <div class="row justify-content-center">
       <div class="col-12 col-md-6 col-lg-6">
-        
+
         <div class="form-container">
           <%= simple_form_for @studio do |f| %>
             <%= f.input :name, label: "Nom" %>

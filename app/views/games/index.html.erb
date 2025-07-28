@@ -19,18 +19,17 @@
       </div>
 
       <div class="card-game-footer">
-        <%= link_to game.studio.name,
-                    game.studio.internet_site,
+        <%= link_to game.title,
+                    game_path(game),
                     class: "btn btn-gradient",
                     target: :_blank,
-                    rel: "noopener",
-                    aria: { label: "Site de #{game.studio.name}" } %>
+                    rel: "noopener"%>
       </div>
     </div>
   <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Voir les cconsoles", platforms_path, class: "btn btn-platform", aria: { label: "Voir les consoles" } %>
+    <%= link_to "Voir les cconsoles", platforms_path, class: "btn btn-access", aria: { label: "Voir les consoles" } %>
     <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add", aria: { label: "Ajouter un nouveau jeu" } %>
   </div>
 </div>
