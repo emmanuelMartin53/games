@@ -1,27 +1,24 @@
 <div class="card">
-  <div>
-    <h1 class="card-title">Studios</h1>
+  <h1 class="card-title">Studios</h1>
 
-    <% @studios.each do |studio| %>
-      <div class="card-game">
-        <div class="card-game-infos">
-          <div>
-            <h2><%= studio.name %></h2>
-            <p><%= studio.postal_address %></p>
-            <p><%= studio.origin_country %></p>
-          </div>
-          <div>
-            <%= link_to "Accéder au site", studio.internet_site, class: "btn btn-gradient", target: :_blank %>
-          </div>
+  <% @studios.each do |studio| %>
+    <div class="card-game">
+      <div class="card-game-infos">
+        <div>
+          <h2><%= studio.name %></h2>
+          <p><%= studio.postal_address %></p>
+          <p><%= studio.origin_country %></p>
+        </div>
+        <div class="card-link-right">
+          <%= link_to "Accéder au site", studio.internet_site, class: "btn btn-gradient", target: "_blank", rel: "noopener" %>
         </div>
       </div>
-    <% end %>
-  </div>
-      <div class="card-buttons">
-        <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform" %>
-        <%= link_to "Accéder aux jeux", games_path, class: "btn btn-game" %>
-        <%= link_to "Ajouter un studio", new_studio_path, class: "btn btn-add" %>
-      </div>
-</div> <!-- Fermeture correcte de .card -->
+    </div>
+  <% end %>
 
-<!-- BOUTONS bien positionnés sous la carte -->
+  <div class="card-buttons">
+    <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform" %>
+    <%= link_to "Accéder aux jeux", games_path, class: "btn btn-game" %>
+    <%= link_to "Ajouter un studio", new_studio_path, class: "btn btn-add" %>
+  </div>
+</div> <!-- fin .card -->
