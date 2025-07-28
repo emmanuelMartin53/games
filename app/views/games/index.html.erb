@@ -19,12 +19,11 @@
       </div>
 
       <div class="card-game-footer">
-        <%= link_to game.studio.name,
-                    game.studio.internet_site,
+        <%= link_to game.title,
+                    game_path(game),
                     class: "btn btn-gradient",
                     target: :_blank,
-                    rel: "noopener",
-                    aria: { label: "Site de #{game.studio.name}" } %>
+                    rel: "noopener"%>
       </div>
     </div>
   <% end %>

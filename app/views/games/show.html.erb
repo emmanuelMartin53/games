@@ -1,0 +1,25 @@
+<div class="card" aria-labelledby="games-title">
+  <div class="card-game">
+    <h1 id="games-title" class="card-title"><%= @game.title %></h1>
+    <p class="card-game-type"><%= @game.type_game.upcase %></p>
+    <p>Date de sortie : <%= @game.exit_date.strftime("%d-%b-%Y") %></p>
+  </div>
+
+  <div class="card-game">
+    <p class="description"><%= sanitize(@game.description) %></p>
+  </div>
+
+  <div class="card-game-footer">
+    <div class="card-footer-link">
+      <%= link_to @game.studio.name,
+                  @game.studio.internet_site,
+                  class: "btn btn-gradient",
+                  target: "_blank",
+                  rel: "noopener",
+                  aria_label: "Site de #{@game.studio.name}" %>
+    </div>
+    <div class="card-footer-link">
+      <%= link_to "Retour aux jeux", games_path, class: "btn btn-return" %>
+    </div>
+  </div>
+</div>
