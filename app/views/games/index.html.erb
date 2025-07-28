@@ -4,7 +4,7 @@
   <% @games.each do |game| %>
     <div class="card-game" aria-label="<%= "Fiche du jeu #{game.title}" %>">
       <div class="card-game-header">
-        <h2 class="card-game-title"><%= game.title %></h2>
+        <h2 class="card-game-title"><%= game.title%></h2>
         <p class="card-game-type"><%= game.type_game %></p>
       </div>
 
@@ -30,7 +30,7 @@
   <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Accéder aux plateformes", platforms_path, class: "btn btn-platform", aria: { label: "Voir les plateformes de jeux" } %>
+    <%= link_to "Voir les cconsoles", platforms_path, class: "btn btn-platform", aria: { label: "Voir les consoles" } %>
     <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add", aria: { label: "Ajouter un nouveau jeu" } %>
   </div>
 </div>

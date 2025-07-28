@@ -62,8 +62,8 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-}
 
+}
 .card-buttons .btn {
   min-width: 150px; /* largeur fixe */
   text-align: center;
@@ -74,17 +74,19 @@
 }
 
 // 📱 Responsive design
-@media (max-width: 768px) {
-  .card {
-    padding: 1rem;
+  @media (max-width: 768px) {
+  .card-game {
+    text-align: left;
+  }
 
-    .card-game-infos {
-      flex-direction: column;
-      align-items: flex-start;
+  .card-game-infos {
+    align-items: flex-start;
 
-      .card-link {
-        margin-top: 1rem;
-      }
+    h2, p {
+      text-align: left;
+      width: 100%;
     }
   }
 }
+
+
