@@ -38,6 +38,7 @@ Platform.create!(name: "XBOX Series", exit_date: "2019-11-21", builder: microsof
 puts "Création des studios 🎬"
 naughty_dog = Studio.create!(
   name: "Naughty Dogs",
+  description: "Studio créé en 1984",
   internet_site: "https://www.naughtydog.com/",
   postal_address: "Los Angeles",
   origin_country: "USA",
@@ -46,6 +47,7 @@ naughty_dog = Studio.create!(
 
 monolith_software = Studio.create!(
   name: "Monolith Software",
+  description: "Studio créé en 2012",
   internet_site: "https://www.monolithsoft.co.jp/",
   postal_address: "Kyoto",
   origin_country: "JAPON",
@@ -54,6 +56,7 @@ monolith_software = Studio.create!(
 
 guerilla_games = Studio.create!(
   name: "Guerilla Games",
+  description: "Studio créé en 2003",
   internet_site: "https://www.guerrilla-games.com/",
   postal_address: "Amsterdam",
   origin_country: "Pays-Bas",

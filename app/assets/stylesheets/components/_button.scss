@@ -37,5 +37,9 @@
     }
     &.btn-return {
       background-color: $dark-red;
+
+      &:hover {
+        background-color: darken($dark-red, 5%);
+      }
     }
   }
