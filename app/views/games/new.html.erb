@@ -19,7 +19,7 @@
           <%= simple_form_for @game, html: { class: "simple_form" } do |f| %>
             <%= f.input :title, label: "Titre du jeu" %>
             <%= f.input :type_game, label: "Type de jeu" %>
-            <%= f.input :description, label: "Description" %>
+            <%= f.input :description, as: :text , input_html: { rows: 5 }, label: "Description" %>
             <%= f.input :exit_date, label: "Date de sortie", as: :date %>
             <%= f.input :min_player, label: "Nombre minimum de joueurs", min: 1 %>
             <%= f.input :min_age, label: "Âge minimum", min: 1 %>
