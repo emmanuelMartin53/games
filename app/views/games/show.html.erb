@@ -13,13 +13,16 @@
     <div class="card-footer-link">
       <%= link_to @game.studio.name,
                   @game.studio.internet_site,
-                  class: "btn btn-gradient",
+                  class: "btn btn-gradient text-white py-3 rounded-pill",
                   target: "_blank",
                   rel: "noopener",
                   aria_label: "Site de #{@game.studio.name}" %>
     </div>
     <div class="card-footer-link">
-      <%= link_to "Retour aux jeux", games_path, class: "btn btn-return" %>
+      <%= link_to "Modifier", edit_game_path(@game), class: "btn btn-add text-white py-3 rounded-pill" %>
+    </div>
+    <div class="card-footer-link">
+      <%= link_to "Retour aux jeux", games_path, class: "btn btn-return text-white py-3 rounded-pill"  %>
     </div>
   </div>
 </div>
