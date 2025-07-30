@@ -1,13 +1,9 @@
 <div class="card">
   <div class="card-game-infos">
     <h1 id="studios-title" class="card-title"><strong><%= @studio.name.upcase %></strong></h1>
-      <p><%= @studio.description %></p>
+    <div><%=sanitize(@studio.description)%></div>
   </div>
-
-  <div class="card-buttons">
-      <%= link_to "Voir le site", @studio.internet_site, class: "btn btn-gradient text-white py-3 rounded-pill", target: "_blank", rel: "noopener" %>
-  </div>
-
+  
   <div class="card">
     <h2>Jeux développés :</h2>
       <% if @studio.games.any? %>
@@ -38,6 +34,8 @@
 
 
     <div class="card-buttons">
+      <%= link_to "Modifier", edit_studio_path, class: "btn btn-add text-white py-3 rounded-pill" %>
+      <%= link_to "Voir le site", @studio.internet_site, class: "btn btn-gradient text-white py-3 rounded-pill", target: "_blank", rel: "noopener" %>
       <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
     </div>
 </div>

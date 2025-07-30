@@ -25,9 +25,22 @@ class StudiosController < ApplicationController
     end
   end
 
+  def edit
+    @studio = Studio.find(params[:id])
+  end
+
+  def update
+    @studio = Studio.find(params[:id])
+    if @studio.update(studio_params)
+      redirect_to studio_path(@studio), notice: "Le studio a été modifié"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def studio_params
-    params.require(:studio).permit(:name, :internet_site, :postal_address, :origin_country, :builder_id)
+    params.require(:studio).permit(:name, :description, :internet_site, :postal_address, :origin_country, :builder_id)
   end
 end
