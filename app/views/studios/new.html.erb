@@ -19,7 +19,7 @@
         <div class="form-container">
           <%= simple_form_for @studio do |f| %>
             <%= f.input :name, label: "Nom" %>
-            <%= f.input :description, as: :text, input_html: { rows: 5 } %>
+            <%= f.input :description, as: :text, input_html: { rows: 3 } %>
             <%= f.input :internet_site, label: "Site internet" %>
             <%= f.input :postal_address, label: "Adresse postale" %>
             <%= f.input :origin_country,
@@ -34,7 +34,7 @@
                 include_blank: true %>
 
             <div class="d-grid gap-2 mt-3 py-3">
-              <%= f.button :submit, "Ajouter", class: "btn btn-submit" %>
+              <%= f.button :submit, "Ajouter", class: "btn btn-submit text-white py-3 rounded-pill" %>
             </div>
           <% end %>
         </div>

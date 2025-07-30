@@ -21,14 +21,15 @@
       <div class="card-game-footer">
         <%= link_to game.title,
                     game_path(game),
-                    class: "btn btn-gradient",
+                    class: "btn btn-gradient text-white py-3 rounded-pill",
                     rel: "noopener"%>
       </div>
     </div>
   <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Voir les consoles", platforms_path, class: "btn btn-access", aria: { label: "Voir les consoles" } %>
-    <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add", aria: { label: "Ajouter un nouveau jeu" } %>
+    <%= link_to "Voir les consoles", platforms_path, class: "btn btn-access text-white py-3 rounded-pill", aria: { label: "Voir les consoles" } %>
+    <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add text-white py-3 rounded-pill", aria: { label: "Ajouter un nouveau jeu" } %>
+    <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill", aria: { label: "Voir les consoles" }  %>
   </div>
 </div>
