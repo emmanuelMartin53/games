@@ -29,11 +29,17 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     #@flat.user = current_user
     if @game.update(game_params)
-      redirect_to game_path(@game), notice: "le jeu a été modifié"
+      redirect_to games_path, notice: "le jeu a été modifié"
     else
       render :edit, status: :unprocessable_entity
     end
 
+  end
+
+ def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    redirect_to games_path(@game.studio), status: :see_other, notice: "Le jeu a été supprimé."
   end
 
   private

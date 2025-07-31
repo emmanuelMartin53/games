@@ -5,5 +5,5 @@ class Game < ApplicationRecord
   has_many :platforms, through: :platform_has_game
 
   validates :title, uniqueness: {
-      message: "le jeu existe déjà" }
+      message: "le jeu existe déjà" }, presence: true
 end
