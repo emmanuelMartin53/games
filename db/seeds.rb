@@ -1,4 +1,5 @@
 puts "Nettoyage de la base de données 🗑️"
+PlatformHasGame.destroy_all
 User.destroy_all
 Game.destroy_all
 Studio.destroy_all
@@ -31,9 +32,9 @@ microsoft = Builder.create!(
 )
 
 puts "Création des plateformes 🕹️"
-Platform.create!(name: "PS5", exit_date: "2020-11-26", builder: sony)
-Platform.create!(name: "Switch 2", exit_date: "2017-06-05", builder: nintendo)
-Platform.create!(name: "XBOX Series", exit_date: "2019-11-21", builder: microsoft)
+ps5 = Platform.create!(name: "PS5", exit_date: "2020-11-26", builder: sony)
+switch_2 = Platform.create!(name: "Switch 2", exit_date: "2017-06-05", builder: nintendo)
+xbox_series = Platform.create!(name: "XBOX Series", exit_date: "2019-11-21", builder: microsoft)
 
 puts "Création des studios 🎬"
 naughty_dog = Studio.create!(
@@ -64,7 +65,8 @@ guerilla_games = Studio.create!(
 )
 
 puts "Création des jeux 🎮"
-Game.create!(
+
+last_of_us = Game.create!(
   title: "The Last of Us Part II",
   type_game: "Aventure",
   description: "Histoire de zombies et de survie",
@@ -76,7 +78,7 @@ Game.create!(
   studio: naughty_dog
 )
 
-Game.create!(
+xenoblade = Game.create!(
   title: "Xenoblade Chronicles",
   type_game: "RPG",
   description: "Jeu de rôle et de survie",
@@ -88,7 +90,7 @@ Game.create!(
   studio: monolith_software
 )
 
-Game.create!(
+horizon = Game.create!(
   title: "Horizon Zero Dawn",
   type_game: "RPG",
   description: "Aloy dans un monde apocalyptique",
@@ -99,6 +101,13 @@ Game.create!(
   min_age: 16,
   studio: guerilla_games
 )
+
+puts "Association des jeux aux plateformes 🎮🕹️"
+
+PlatformHasGame.create!(game: last_of_us, platform: ps5)
+PlatformHasGame.create!(game: xenoblade, platform: switch_2)
+PlatformHasGame.create!(game: horizon, platform: ps5)
+
 
 puts "✅ Terminé !"
 puts "Utilisateurs créés : #{User.count}"

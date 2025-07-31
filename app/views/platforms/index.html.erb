@@ -9,20 +9,20 @@
           <p><%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
           <p><%= platform.builder.name %></p>
         </div>
-      <div class="card-link-right">
-        <%= link_to "Voir la console",
-                    platform_path(platform),
-                    class: "btn btn-gradient text-white py-3 rounded-pill",
-                    rel: "noopener"%>
+
+        <div class="card-link-right">
+          <%= link_to "Voir la console",
+                      platform_path(platform),
+                      class: "btn btn-gradient text-white py-3 rounded-pill",
+                      rel: "noopener" %>
         </div>
       </div>
     </div>
   <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+    <%= link_to "Voir les studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
     <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-add text-white py-3 rounded-pill" %>
     <%= link_to "Voir les jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
   </div>
-
 </div>

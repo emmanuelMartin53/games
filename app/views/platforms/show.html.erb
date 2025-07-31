@@ -1,8 +1,22 @@
 <div class="card" aria-labelledby="studios-title">
   <div class="card-game-infos">
     <h1 id="studios-title" class="card-title"><%= @platform.name.upcase%></h1>
-      <p><%=@platform.exit_date.strftime("%d-%B-%Y") if @platform.exit_date %></p>
-      <p><%= @platform.builder.name %></p>
+
+      <div class="card">
+        <% @platform.games.each do |game| %>
+              <div class="card">
+                <div class="card-game">
+                  <h3 class="card-title"><%= game.title %></h3>
+                  <p class="card-game-type"><%= game.type_game%></p>
+                  <p class="description"><%= sanitize(game.description) %></p>
+                </div>
+                  <div class="card-buttons">
+                <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient text-white py-3 rounded-pill" %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+
   </div>
 
   <div class="card-buttons">
