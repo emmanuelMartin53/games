@@ -23,9 +23,9 @@
     </div>
     <div class="card-footer-link">
       <%= link_to "Retour aux jeux", games_path, class: "btn btn-return text-white py-3 rounded-pill"  %>
-      <%= link_to "Delete",
+      <%= link_to "Supprimer le jeu",
           game_path(@game),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          data: {turbo_method: :delete, turbo_confirm: "Etes vous su de vouloir supprimer ce jeu?"}%>
     </div>
   </div>
 </div>
