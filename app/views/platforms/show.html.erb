@@ -1,0 +1,17 @@
+<div class="card" aria-labelledby="studios-title">
+  <div class="card-game-infos">
+    <h1 id="studios-title" class="card-title"><%= @platform.name.upcase%></h1>
+      <p><%=@platform.exit_date.strftime("%d-%B-%Y") if @platform.exit_date %></p>
+      <p><%= @platform.builder.name %></p>
+  </div>
+
+  <div class="card-buttons">
+    <%= link_to "Modifier", edit_platform_path(@platform),
+                class: "btn btn-add text-white py-3 rounded-pill",
+                aria: { label: "Modifier la plateforme #{@platform.name}" } %>
+
+    <%= link_to "Voir les studios", studios_path,
+                class: "btn btn-access text-white py-3 rounded-pill",
+                aria: { label: "Voir la liste des studios" } %>
+  </div>
+</div>

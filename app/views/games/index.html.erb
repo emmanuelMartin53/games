@@ -1,38 +1,47 @@
 <div class="card" aria-labelledby="games-title">
-  <h1 id="games-title" class="card-title">Mes jeux</h1>
+  <h1 class="card-title">Mes jeux</h1>
 
-  <% @games.each do |game| %>
-    <div class="card-game" aria-label="<%= "Fiche du jeu #{game.title}" %>">
-      <div class="card-game-header">
-        <h2 class="card-game-title"><%= game.title%></h2>
-        <p class="card-game-type"><%= game.type_game %></p>
-      </div>
+    <% @games.each do |game| %>
+      <div class="card-game" aria-labelledby="game-title">
+        <div class="card-game-infos">
+          <div>
+            <h2 class="card-title"><%= game.title %></h2>
+            <p><%= game.type_game %></p>
+            <p><%= sanitize(game.description) %></p>
+            <ul>
+              <li><%= pluralize(game.min_player, 'joueur') %></li>
+              <li>Âge minimum : <%= game.min_age %> ans</li>
+              <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
+              <li class="card-game-pricing">
+                <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
+              </li>
+            </ul>
+          </div>
 
-      <div class="card-game-body">
-        <p class="description"><%= sanitize(game.description) %></p>
-        <ul class="card-game-details">
-          <li><%= pluralize(game.min_player, 'joueur') %></li>
-          <li>Âge minimum : <%= game.min_age %> ans</li>
-          <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
-          <li class="card-game-pricing"><%= number_to_currency(game.price, unit: "€", format: "%n %u") %></li>
-        </ul>
+          <div class="card-link-right">
+            <%= link_to game.title,
+                        game_path(game),
+                        class: "btn btn-gradient text-white py-3 rounded-pill",
+                        rel: "noopener" %>
+          </div>
+        </div>
       </div>
-
-      <div class="card-game-footer">
-        <%= link_to game.title,
-                    game_path(game),
-                    class: "btn btn-gradient text-white py-3 rounded-pill",
-                    rel: "noopener"%>
-        <%= link_to "Delete",
-          game_path(game),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
 
   <div class="card-buttons">
-    <%= link_to "Voir les consoles", platforms_path, class: "btn btn-access text-white py-3 rounded-pill", aria: { label: "Voir les consoles" } %>
-    <%= link_to "Ajouter un jeu", new_game_path, class: "btn btn-add text-white py-3 rounded-pill", aria: { label: "Ajouter un nouveau jeu" } %>
-    <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill", aria: { label: "Voir les consoles" }  %>
+    <%= link_to "Voir les consoles",
+                platforms_path,
+                class: "btn btn-access text-white py-3 rounded-pill",
+                aria: { label: "Voir les consoles" } %>
+
+    <%= link_to "Ajouter un jeu",
+                new_game_path,
+                class: "btn btn-add text-white py-3 rounded-pill",
+                aria: { label: "Ajouter un nouveau jeu" } %>
+
+    <%= link_to "Voir les studios",
+                studios_path,
+                class: "btn btn-access text-white py-3 rounded-pill",
+                aria: { label: "Voir les studios" } %>
   </div>
 </div>
