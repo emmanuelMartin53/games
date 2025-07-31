@@ -13,8 +13,8 @@
               <li>Âge minimum : <%= game.min_age %> ans</li>
               <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
               <li class="card-game-pricing">
-                <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
-              </li>
+                <%= number_to_currency(game.price, unit: "€", format: "%n %u") %></li>
+              <li> Jouable sur <%= game.platforms.map { |platform| platform.name }.join(", ") %></li>
             </ul>
           </div>
 
