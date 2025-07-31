@@ -9,6 +9,12 @@
           <p><%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
           <p><%= platform.builder.name %></p>
         </div>
+      <div class="card-link-right">
+        <%= link_to "Voir la console",
+                    platform_path(platform),
+                    class: "btn btn-gradient text-white py-3 rounded-pill",
+                    rel: "noopener"%>
+        </div>
       </div>
     </div>
   <% end %>

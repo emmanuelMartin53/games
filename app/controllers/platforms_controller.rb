@@ -5,6 +5,10 @@ class PlatformsController < ApplicationController
     @platforms = Platform.all
   end
 
+  def show
+    @platform = Platform.find(params[:id])
+  end
+
   def new
     @platform = Platform.new
   end
@@ -15,6 +19,19 @@ class PlatformsController < ApplicationController
       redirect_to platforms_path, notice: "La console de jeu a été ajouté"
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @platform = Platform.find(params[:id])
+  end
+
+  def update
+    @platform = Platform.find(params[:id])
+    if @platform.update(platform_params)
+       redirect_to platform_path(@platform), notice: "la plateforme a été modifié"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
