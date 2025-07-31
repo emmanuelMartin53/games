@@ -31,9 +31,9 @@ microsoft = Builder.create!(
 )
 
 puts "Création des plateformes 🕹️"
-Platform.create!(name: "PS5", exit_date: "2020-11-26", builder: sony)
+Platform.create!(name: "PS5 pro", exit_date: "2024-11-18", builder: sony)
 Platform.create!(name: "Switch 2", exit_date: "2017-06-05", builder: nintendo)
-Platform.create!(name: "XBOX Series", exit_date: "2019-11-21", builder: microsoft)
+Platform.create!(name: "XBOX Series X", exit_date: "2019-11-21", builder: microsoft)
 
 puts "Création des studios 🎬"
 naughty_dog = Studio.create!(

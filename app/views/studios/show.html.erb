@@ -3,7 +3,7 @@
     <h1 id="studios-title" class="card-title"><strong><%= @studio.name.upcase %></strong></h1>
     <div><%=sanitize(@studio.description)%></div>
   </div>
-  
+
   <div class="card">
     <h2>Jeux développés :</h2>
       <% if @studio.games.any? %>
@@ -30,12 +30,12 @@
         <p>Aucun jeu développé.</p>
       <% end %>
     </div>
-</div>
-
-
     <div class="card-buttons">
       <%= link_to "Modifier", edit_studio_path, class: "btn btn-add text-white py-3 rounded-pill" %>
       <%= link_to "Voir le site", @studio.internet_site, class: "btn btn-gradient text-white py-3 rounded-pill", target: "_blank", rel: "noopener" %>
       <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
     </div>
+  </div>
+
+
 </div>
