@@ -15,6 +15,7 @@
               <li class="card-game-pricing">
                 <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
               </li>
+              <li>Jouable sur <%= game.platforms.name%></li>
             </ul>
           </div>
 
