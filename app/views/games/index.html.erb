@@ -19,31 +19,15 @@
             </ul>
           </div>
 
-          <ul>
-            <li><%= pluralize(game.min_player, 'joueur') %></li>
-            <li>Âge minimum : <%= game.min_age %> ans</li>
-            <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
-            <li class="card-game-pricing">
-              <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
-            </li>
-
-            <% if game.platforms.any? %>
-              <li>Jouable sur <%= game.platforms.map(&:name).join(", ") %></li>
-            <% else %>
-              <li>Plateforme non spécifiée</li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="card-link-right">
-          <%= link_to "Voir le jeu",
-                      game_path(game),
-                      class: "btn btn-gradient text-white py-3 rounded-pill",
-                      rel: "noopener" %>
+          <div class="card-link-right">
+            <%= link_to game.title,
+                        game_path(game),
+                        class: "btn btn-gradient text-white py-3 rounded-pill",
+                        rel: "noopener" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
   <div class="card-buttons">
     <%= link_to "Voir les consoles",
