@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<h1 class="text-center fw-bold text-black">Ajouter un jeu</h1>
+<h1 class="text-center fw-bold text-black"><%=@game.new_record? ? "Ajouter un jeu" : "Modifier un jeu"%></h1>
 
 <div class="container py-4 mb-5">
   <div class="row justify-content-center">
