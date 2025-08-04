@@ -2,10 +2,10 @@
   <h1 class="card-title">Mes consoles</h1>
 
   <% @platforms.each do |platform| %>
-    <div class="card-game">
-      <div class="card-game-infos">
+    <div class="card-game" data-controller="toggle">
+          <h3 data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h3>
+      <div class="card-game-infos" data-toggle-target="content" hidden>
         <div>
-          <h2><%= platform.name.upcase %></h2>
           <p><%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
           <p><%= platform.builder.name %></p>
         </div>
