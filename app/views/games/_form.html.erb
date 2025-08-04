@@ -18,12 +18,16 @@
 
           <%= simple_form_for @game, html: { class: "simple_form" } do |f| %>
             <%= f.input :title, label: "Titre du jeu" %>
-            <%= f.input :type_game, label: "Type de jeu" %>
+            <%= f.input :type_game,
+              as: :check_boxes,
+              item_wrapper_class: "form-check form-check-inline",
+              collection: ["RPG", "Aventure", "Action", "Combat", "Sport"],
+              label: "Type de jeu:" %>
             <%= f.input :description, as: :text, input_html: { rows: 3 } %>
             <%= f.input :exit_date, label: "Date de sortie", as: :date %>
             <%= f.input :min_player, label: "Nombre minimum de joueurs", min: 1 %>
-            <%= f.input :min_age, label: "Âge minimum", min: 1 %>
-            <%= f.input :price, label: "Prix (€)", min: 0, step: 0.01 %>
+            <%= f.input :min_age, label: "Âge minimum", input_html: { min: 3, placeholder: "3" }%>
+            <%= f.input :price, label: "Prix (€)", input_html:{ min: 0, step: 0.01, placeholder: "0" }%>
             <%= f.input :platform_ids, collection: Platform.all, label: "Plateformes disponibles", as: :check_boxes %>
 
             <%= f.input :studio_id,
