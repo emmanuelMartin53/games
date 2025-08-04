@@ -3,12 +3,8 @@
     <h1 id="studios-title" class="card-title"><%= @platform.name.upcase%></h1>
         <% @platform.games.each do |game| %>
               <div class="card">
-<<<<<<< HEAD
-                  <h3 class="card-title"><%= game.title %></h3>
-=======
                 <div class="card-game">
                   <h3 class="card-game-title"><%= game.title %></h3>
->>>>>>> ee16e814f95e059d456e3f35495d7ab557786bd8
                   <p class="card-game-type"><%= game.type_game%></p>
                   <p class="description"><%= sanitize(game.description) %></p>
                   <div class="card-buttons">

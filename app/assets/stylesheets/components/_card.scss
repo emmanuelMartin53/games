@@ -18,7 +18,7 @@
 
 
   // 🕹️ Carte d'un jeu/console
-  .card-game, .card-studio {
+  .card-game, .card-studio, .card-platform {
     background-color: $color-light-gray;
     border: 1px solid $color-border;
     border-radius: 12px;
@@ -32,11 +32,14 @@
 
     }
 
-    .card-game-title {
+    .card-game-title,
+      .card-studio-title,
+        .card-platform-title {
       text-align: center;
       font-weight: bold;
       margin-bottom: 1.5rem;
       padding: 1rem;
+      text-transform: uppercase;
     }
 
     .card-game-infos {
