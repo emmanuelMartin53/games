@@ -2,6 +2,8 @@
   <div class="card-game-infos">
     <h1 id="studios-title" class="card-title"><strong><%= @studio.name.upcase %></strong></h1>
     <div><%=sanitize(@studio.description)%></div>
+        <p><%= @studio.postal_address %></p>
+        <p><%= @studio.origin_country %></p>
   </div>
 
   <div class="card">

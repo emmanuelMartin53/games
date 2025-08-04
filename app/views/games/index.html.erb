@@ -1,32 +1,39 @@
 <div class="card" aria-labelledby="games-title">
   <h1 class="card-title">Mes jeux</h1>
 
-    <% @games.each do |game| %>
-      <div class="card-game" aria-labelledby="game-title">
-        <div class="card-game-infos">
-          <div>
-            <h2 class="card-title"><%= game.title %></h2>
-            <p><%= game.type_game %></p>
-            <p><%= sanitize(game.description) %></p>
-            <ul>
-              <li><%= pluralize(game.min_player, 'joueur') %></li>
-              <li>Âge minimum : <%= game.min_age %> ans</li>
-              <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
-              <li class="card-game-pricing">
-                <%= number_to_currency(game.price, unit: "€", format: "%n %u") %></li>
-              <li> Jouable sur <%= game.platforms.map { |platform| platform.name }.join(", ") %></li>
-            </ul>
-          </div>
+  <% @games.each do |game| %>
+    <div class="card-game" aria-labelledby="game-title">
+      <div class="card-game-infos" data-controller="toggle">
+        <div>
+          <h2 class="card-title"><%= game.title %></h2>
+          <p><%= game.type_game %></p>
+          <p><%= sanitize(game.description) %></p>
 
-          <div class="card-link-right">
-            <%= link_to game.title,
-                        game_path(game),
-                        class: "btn btn-gradient text-white py-3 rounded-pill",
-                        rel: "noopener" %>
-          </div>
+          <ul>
+            <li><%= pluralize(game.min_player, 'joueur') %></li>
+            <li>Âge minimum : <%= game.min_age %> ans</li>
+            <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
+            <li class="card-game-pricing">
+              <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
+            </li>
+
+            <% if game.platforms.any? %>
+              <li>Jouable sur <%= game.platforms.map(&:name).join(", ") %></li>
+            <% else %>
+              <li>Plateforme non spécifiée</li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="card-link-right">
+          <%= link_to "Voir le jeu",
+                      game_path(game),
+                      class: "btn btn-gradient text-white py-3 rounded-pill",
+                      rel: "noopener" %>
         </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
   <div class="card-buttons">
     <%= link_to "Voir les consoles",

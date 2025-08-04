@@ -32,9 +32,9 @@ microsoft = Builder.create!(
 )
 
 puts "Création des plateformes 🕹️"
-ps5 = Platform.create!(name: "PS5", exit_date: "2020-11-26", builder: sony)
+ps5_pro = Platform.create!(name: "PS5 Pro", exit_date: "2020-11-26", builder: sony)
 switch_2 = Platform.create!(name: "Switch 2", exit_date: "2017-06-05", builder: nintendo)
-xbox_series = Platform.create!(name: "XBOX Series", exit_date: "2019-11-21", builder: microsoft)
+xbox_series_x = Platform.create!(name: "XBOX Series X", exit_date: "2019-11-21", builder: microsoft)
 
 puts "Création des studios 🎬"
 naughty_dog = Studio.create!(
@@ -42,7 +42,7 @@ naughty_dog = Studio.create!(
   description: "Studio créé en 1984",
   internet_site: "https://www.naughtydog.com/",
   postal_address: "Los Angeles",
-  origin_country: "USA",
+  origin_country: "Etats-unis",
   builder: sony
 )
 
@@ -51,7 +51,7 @@ monolith_software = Studio.create!(
   description: "Studio créé en 2012",
   internet_site: "https://www.monolithsoft.co.jp/",
   postal_address: "Kyoto",
-  origin_country: "JAPON",
+  origin_country: "Japon",
   builder: nintendo
 )
 
@@ -104,9 +104,9 @@ horizon = Game.create!(
 
 puts "Association des jeux aux plateformes 🎮🕹️"
 
-PlatformHasGame.create!(game: last_of_us, platform: ps5)
+PlatformHasGame.create!(game: last_of_us, platform: ps5_pro)
 PlatformHasGame.create!(game: xenoblade, platform: switch_2)
-PlatformHasGame.create!(game: horizon, platform: ps5)
+PlatformHasGame.create!(game: horizon, platform: ps5_pro)
 
 
 puts "✅ Terminé !"

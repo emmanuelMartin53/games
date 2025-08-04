@@ -1,15 +1,16 @@
 <div class="card">
-  <h1 class="card-title">Studios</h1>
+  <h1 class="card-title"><strong>STUDIOS</strong></h1>
 
   <% @studios.each do |studio| %>
-    <div class="card-game">
-      <div class="card-game-infos">
-        <div>
-          <h2><%= studio.name %></h2>
-          <p><%= studio.description%></p>
-          <p><%= studio.postal_address %></p>
-          <p><%= studio.origin_country %></p>
-        </div>
+    <div class="card-game" data-controller="toggle">
+      <h2 data-action="click->toggle#toggle" class="studio-title" style="cursor: pointer;">
+        <%= studio.name %>
+      </h2>
+
+      <div class="card-game-infos" data-toggle-target="content" hidden>
+        <p><%= studio.description %></p>
+        <p><%= studio.origin_country %></p>
+
         <div class="card-link-right">
           <%= link_to "Voir le studio", studio_path(studio), class: "btn btn-gradient text-white py-3 rounded-pill", rel: "noopener" %>
         </div>
@@ -22,4 +23,4 @@
     <%= link_to "Ajouter un studio", new_studio_path, class: "btn btn-add text-white py-3 rounded-pill" %>
     <%= link_to "Voir les jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
   </div>
-</div> <!-- fin .card -->
+</div>
