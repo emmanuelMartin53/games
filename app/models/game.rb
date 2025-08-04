@@ -6,4 +6,7 @@ class Game < ApplicationRecord
 
   validates :title, uniqueness: {
       message: "le jeu existe déjà" }, presence: true
+
+  validates :min_age, numericality: { greater_than_or_equal_to: 3 }, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
 end
