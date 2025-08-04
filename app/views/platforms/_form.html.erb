@@ -10,9 +10,7 @@
 <% end %>
 
 <div class="form">
-  <h1 class="text-center fw-bold text-black py-3">
-    <%=@platform.new_record? ? "Ajouter une console" : "modifier"%>
-    </h1>
+  <h1 class="text-center fw-bold text-black py-3"><%=@platform.new_record? ? "Ajouter une console" : "Mettre à jour"%></h1>
 
   <div class="container py-4">
     <div class="row justify-content-center">
@@ -27,7 +25,7 @@
                   include_blank: true %>
 
             <div class="d-grid gap-2 mt-3 py-3">
-              <%= f.button :submit, @platform.new_record? ? "Ajouter" : "Mettre à jour" , class: "btn btn-add text-white py-3 rounded-pill" %>
+              <%= f.button :submit, @platform.new_record? ? "Ajouter" : "Mettre à jour", class: "btn btn-add text-white py-3 rounded-pill" %>
             </div>
           <% end %>
         </div>
