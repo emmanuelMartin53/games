@@ -42,7 +42,7 @@ naughty_dog = Studio.create!(
   description: "Studio créé en 1984",
   internet_site: "https://www.naughtydog.com/",
   postal_address: "Los Angeles",
-  origin_country: "USA",
+  origin_country: "Etats-unis",
   builder: sony
 )
 
@@ -51,7 +51,7 @@ monolith_software = Studio.create!(
   description: "Studio créé en 2012",
   internet_site: "https://www.monolithsoft.co.jp/",
   postal_address: "Kyoto",
-  origin_country: "JAPON",
+  origin_country: "Japon",
   builder: nintendo
 )
 
