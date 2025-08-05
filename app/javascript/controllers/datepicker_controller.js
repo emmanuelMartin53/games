@@ -1,12 +1,14 @@
-import { Controller } from "@hotwired/stimulus";
-import flatpickr from "flatpickr";
+import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr"
+import "flatpickr/dist/flatpickr.min.css"
 
-// Connects to data-controller="datepicker"
 export default class extends Controller {
   connect() {
-    console.log("je suis connecté à datepicker");
-    
-    flatpickr(this.element, {})
+    flatpickr(this.element, {
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "d/m/Y",
+      allowInput: true
+    })
   }
-
 }
