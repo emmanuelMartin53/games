@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "application": "/assets/application-03290bb06f4484315dc41dea7b8f8ee6616d1fb365b64dd7b1871de528b36ecd.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-38d030897e3554a265d3a3b6bdf4fb7509b08197ba2b6e3761683c07e776c1bc.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+    "bootstrap": "/assets/bootstrap.min-4ecafa8f279d0b285b3d27ca02c7e5da187907efe2c38f83eb8b4c7d6aa151c4.js",
+    "@popperjs/core": "/assets/popper-003a40d80fd205e1fa00da117d5bdc19720ba330706eaa17f9ba9513fa502304.js",
+    "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-31a9bee606cbc5cdb1593881f388bbf4c345bf693ea24e124f84b6d5c98ab648.js",
+    "controllers/toggle_controller": "/assets/controllers/toggle_controller-cc50ea9bf1c914523d28a20a41155598ff7b8df327ced7dc95d4dfda160c4555.js",
+    "flatpickr": "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
+  }
+}
