@@ -3,15 +3,15 @@
 
     <% @games.each do |game| %>
       <div class="card-game" data-controller="toggle" data-action="click->toggle#toggle"  aria-labelledby="game-title">
-            <h2 class="card-title cursor-pointer" ><%= game.title %></h2>
+            <h4 class="card-game-title cursor-pointer" ><%= game.title %></h4>
         <div class="card-game-infos" data-toggle-target="content" hidden>
           <div>
-            <p><%= game.type_game %></p>
+            <p class="card-game-type"><%= game.type_game.reject(&:blank?).join(", ") %></p>
             <p><%= sanitize(game.description) %></p>
             <ul>
               <li><%= pluralize(game.min_player, 'joueur') %></li>
               <li>Âge minimum : <%= game.min_age %> ans</li>
-              <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
+               <li>Date de sortie : <%= game.exit_date.strftime("%d-%b-%Y") %></li>
               <li class="card-game-pricing">
                 <%= number_to_currency(game.price, unit: "€", format: "%n %u") %>
               </li>

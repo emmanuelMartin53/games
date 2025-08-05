@@ -3,7 +3,7 @@
 
   <% @platforms.each do |platform| %>
     <div class="card-game" data-controller="toggle">
-          <h3 data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h3>
+          <h3 class="card-platform-title" data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h3>
       <div class="card-game-infos" data-toggle-target="content" hidden>
         <div>
           <p><%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
