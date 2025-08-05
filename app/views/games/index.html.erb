@@ -4,7 +4,7 @@
 
     <% @games.each do |game| %>
       <div class="card-game" data-controller="toggle" data-action="click->toggle#toggle"  aria-labelledby="game-title">
-            <h3 class="card-game-title cursor-pointer" ><%= game.title %></h3>
+            <h4 class="card-game-title cursor-pointer" ><%= game.title %></h4>
         <div class="card-game-infos" data-toggle-target="content" hidden>
           <!--<%= cl_image_tag("https://res-console.cloudinary.com/dfixvgj1a/thumbnails/v1/image/upload/v1754307086/aGhpZ29rZWNnOWFwbjlmeGNlcGE=/drilldown",
             width: 100, height: 100, crop: :fill) %> -->
