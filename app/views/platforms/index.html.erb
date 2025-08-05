@@ -2,7 +2,7 @@
   <h1 class="card-title">Mes consoles</h1>
 
   <% @platforms.each do |platform| %>
-    <div class="card-game" data-controller="toggle">
+    <div class="card-platform" data-controller="toggle">
           <h3 class="card-platform-title" data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h3>
       <div class="card-game-infos" data-toggle-target="content" hidden>
         <div>

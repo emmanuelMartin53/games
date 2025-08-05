@@ -3,9 +3,9 @@
 
   <% @studios.each do |studio| %>
     <div class="card-game" data-controller="toggle">
-          <h4 data-action="click->toggle#toggle" class="card-studio-title" style="cursor: pointer;">
+          <h3 data-action="click->toggle#toggle" class="card-studio-title" style="cursor: pointer;">
             <%= studio.name %>
-          </h4>
+          </h3>
       <div class="card-game-infos" data-toggle-target="content" hidden>
         <div>
           <p><%= studio.description%></p>
