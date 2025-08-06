@@ -3,7 +3,9 @@ puts "🧹 Nettoyage de la base de données..."
 # On détruit dans le bon ordre pour respecter les dépendances
 UserPlayGame.destroy_all
 PlatformHasGame.destroy_all
+GameHasType.destroy_all
 Game.destroy_all
+GameType.destroy_all
 Studio.destroy_all
 Platform.destroy_all
 Builder.destroy_all
@@ -42,6 +44,13 @@ ActiveRecord::Base.transaction do
   switch_2 = Platform.create!(name: "Switch 2", exit_date: "2024-03-15", builder: nintendo)
   xbox_series_x = Platform.create!(name: "XBOX Series X", exit_date: "2020-11-10", builder: microsoft)
 
+  puts "🏷️ Création des types de jeux"
+  rpg = GameType.create!(name: "RPG")
+  aventure = GameType.create!(name: "Aventure")
+  action = GameType.create!(name: "Action")
+  combat = GameType.create!(name: "Combat")
+  sport = GameType.create!(name: "Sport")
+
   puts "🎬 Création des studios"
   naughty_dog = Studio.create!(
     name: "Naughty Dogs",
@@ -71,10 +80,8 @@ ActiveRecord::Base.transaction do
   )
 
   puts "🎮 Création des jeux"
-
   last_of_us = Game.create!(
     title: "The Last of Us Part II",
-    type_game: ["Aventure"],
     description: "Histoire de zombies et de survie",
     exit_date: "2020-06-19",
     price: 79.99,
@@ -86,7 +93,6 @@ ActiveRecord::Base.transaction do
 
   xenoblade = Game.create!(
     title: "Xenoblade Chronicles",
-    type_game: ["RPG"],
     description: "Jeu de rôle et de survie",
     exit_date: "2020-05-29",
     price: 59.99,
@@ -98,7 +104,6 @@ ActiveRecord::Base.transaction do
 
   horizon = Game.create!(
     title: "Horizon Zero Dawn",
-    type_game: ["RPG"],
     description: "Aloy dans un monde apocalyptique",
     exit_date: "2017-03-01",
     price: 49.99,
@@ -108,12 +113,15 @@ ActiveRecord::Base.transaction do
     studio: guerilla_games
   )
 
+  puts "🔗 Association des jeux aux types"
+  last_of_us.game_types << aventure
+  xenoblade.game_types << rpg
+  horizon.game_types << [rpg, action]
+
   puts "🔗 Association des jeux aux plateformes"
   PlatformHasGame.create!(game: last_of_us, platform: ps5_pro)
   PlatformHasGame.create!(game: xenoblade, platform: switch_2)
   PlatformHasGame.create!(game: horizon, platform: ps5_pro)
-
-
 end
 
 puts "✅ Terminé !"
@@ -121,6 +129,8 @@ puts "📊 Résumé :"
 puts "Utilisateurs créés : #{User.count}"
 puts "Constructeurs créés : #{Builder.count}"
 puts "Plateformes créées : #{Platform.count}"
+puts "Types de jeux créés : #{GameType.count}"
 puts "Studios créés : #{Studio.count}"
 puts "Jeux créés : #{Game.count}"
+puts "Associations jeu-type : #{GameHasType.count}"
 puts "Associations jeu-plateforme : #{PlatformHasGame.count}"

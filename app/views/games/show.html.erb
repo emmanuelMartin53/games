@@ -1,7 +1,7 @@
 <div class="card" aria-labelledby="games-title">
   <div class="card-game">
     <h1 id="games-title" class="card-title"><%= @game.title %></h1>
-    <p class="card-game-type"><%= @game.type_game.reject(&:blank?).join(", ") %></p>
+    <p class="card-game-type"><%= @game.type_names%></p>
     <p>Date de sortie : <%= @game.exit_date.strftime("%d-%b-%Y") %></p>
   </div>
 
