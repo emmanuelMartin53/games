@@ -38,8 +38,8 @@ ActiveRecord::Base.transaction do
   )
 
   puts "🕹️ Création des plateformes"
-  ps5_pro = Platform.create!(name: "PS5 Pro", exit_date: "2023-11-26", builder: sony)
-  switch_2 = Platform.create!(name: "Switch 2", exit_date: "2024-03-15", builder: nintendo)
+  ps5_pro = Platform.create!(name: "PS5 Pro", exit_date: "2024-11-26", builder: sony)
+  switch_2 = Platform.create!(name: "Switch 2", exit_date: "2025-06-05", builder: nintendo)
   xbox_series_x = Platform.create!(name: "XBOX Series X", exit_date: "2020-11-10", builder: microsoft)
 
   puts "🎬 Création des studios"
