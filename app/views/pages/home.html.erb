@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="card">
+  <h1>🎮 Bienvenue sur GameVerse</h1>
+  <p>Découvre mes jeux, studios et consoles !</p>
+
+  <h2>🆕 Jeux récents</h2>
+  <div>
+    <% @recent_games.each do |game| %>
+      <div class="card-game">
+        <h3><%= game.title %></h3>
+        <p class="card-game-type"><%= game.type_names %></p>
+        <p>Date de sortie : <%= game.exit_date.strftime("%d %B %Y") %></p>
+        <div class="card-link-right">
+          <%= link_to "Voir ce jeu", game_path(game), class: "btn btn-access text-white py-3 rounded-pill", rel: "noopener" %>
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- <-- cette fermeture manquait -->
+
+  <div class="card-buttons mt-4">
+    <%= link_to "Voir toutes les plateformes", platforms_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+    <%= link_to "Voir les studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+    <%= link_to "Ajouter un nouveau jeu", new_game_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+  </div>
+</div>

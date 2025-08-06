@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @user = current_user
+    @recent_games = Game.order(exit_date: :desc).limit(3)
   end
 end

@@ -1,6 +1,19 @@
 class Game < ApplicationRecord
 
-  TYPE_GAMES = [ "RPG", "Aventure", "Action", "Combat", "Sport" ].freeze
+  def type_names
+
+    # .pluck est une méthode qui permet de récupérer une ou plusieurs colonnes spécifique
+    # depuis la BDD ous forme de tableau sans charger les objets complets Active records en mémoire
+    # requète SQL avec .pluck :SELECT name FROM game_types INNER JOIN game_has_types ...
+
+    game_types.pluck(:name).join(', ')
+  end
+
+  #TYPE_GAMES = [ "RPG", "Aventure", "Action", "Combat", "Sport" ].freeze
+
+  has_many :game_has_types, dependent: :destroy
+  has_many :game_types, through: :game_has_types
+
 
   belongs_to :studio
   has_many :user_play_games

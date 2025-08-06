@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_05_141149) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_06_083538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,9 +23,23 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_05_141149) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "game_has_types", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "game_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_has_types_on_game_id"
+    t.index ["game_type_id"], name: "index_game_has_types_on_game_type_id"
+  end
+
+  create_table "game_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "type_game", default: [], array: true
     t.string "description"
     t.date "exit_date"
     t.float "price"
@@ -99,6 +113,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_05_141149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "game_has_types", "game_types"
+  add_foreign_key "game_has_types", "games"
   add_foreign_key "games", "studios"
   add_foreign_key "platform_has_games", "games"
   add_foreign_key "platform_has_games", "platforms"
