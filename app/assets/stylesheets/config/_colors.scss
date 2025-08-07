@@ -10,7 +10,9 @@ $color-medium: #666;
 $color-accent: #6a11cb;
 $color-accent-hover: #5a0db9;
 
-$btn-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+$btn-gradient-blue: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+$btn-gradient-gray:linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+$btn-gradient-green: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
 $shadow-default: 0 4px 12px rgba(0, 0, 0, 0.1);
 $shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
 

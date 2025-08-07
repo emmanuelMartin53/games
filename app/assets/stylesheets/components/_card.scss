@@ -6,6 +6,7 @@
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
+  padding-bottom: 180px;
 
   .card-title {
     font-size: 2rem;
@@ -125,6 +126,14 @@
       }
     }
   }
+  .card-buttons-sticky {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 100;
+}
+
 
   // 📱 Responsive design
   @media (max-width: 768px) {

@@ -8,8 +8,16 @@
     transition: background 0.3s ease;
     display: inline-block;
 
-    &.btn-gradient {
-      background: $btn-gradient;
+    &.btn-gradient-blue {
+      background: $btn-gradient-blue;
+    }
+
+    &.btn-gradient-green {
+      background: $btn-gradient-green;
+    }
+
+    &.btn-gradient-gray {
+      background: $btn-gradient-gray;
     }
 
     &.btn-access {

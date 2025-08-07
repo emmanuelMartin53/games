@@ -1,24 +1,11 @@
+<% content_for :body_class, "home-background" %>
 <div class="card">
-  <h1>🎮 Bienvenue sur GameVerse</h1>
-  <p>Découvre mes jeux, studios et consoles !</p>
-
-  <h2>🆕 Jeux récents</h2>
-  <div>
-    <% @recent_games.each do |game| %>
-      <div class="card-game">
-        <h3><%= game.title %></h3>
-        <p class="card-game-type"><%= game.type_names %></p>
-        <p>Date de sortie : <%= game.exit_date.strftime("%d %B %Y") %></p>
-        <div class="card-link-right">
-          <%= link_to "Voir ce jeu", game_path(game), class: "btn btn-access text-white py-3 rounded-pill", rel: "noopener" %>
-        </div>
-      </div>
-    <% end %>
-  </div> <!-- <-- cette fermeture manquait -->
-
-  <div class="card-buttons mt-4">
-    <%= link_to "Voir toutes les plateformes", platforms_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    <%= link_to "Voir les studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    <%= link_to "Ajouter un nouveau jeu", new_game_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+  <div class="blur-overlay">
+    <h1 class="display-4 fw-bold mb-5">Bienvenue sur GameZone</h1>
+    <div class="d-grid gap-4 col-8 col-md-4 mx-auto">
+      <%= link_to "🎮 Jeux", games_path, class: "btn btn-gradient-blue btn-lg rounded-pill py-3" %>
+      <%= link_to "🏢 Studios", studios_path, class: "btn btn-gradient-gray btn-lg rounded-pill py-3" %>
+      <%= link_to "🕹️ Plateformes", platforms_path, class: "btn btn-info btn-lg rounded-pill py-3 text-white" %>
+    </div>
   </div>
 </div>
