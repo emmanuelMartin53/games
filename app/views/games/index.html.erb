@@ -1,6 +1,22 @@
 <div class="card" aria-labelledby="games-title">
   <h1 class="card-title">Mes jeux</h1>
 
+  <div class="card-buttons card-buttons-sticky">
+    <%= link_to "Voir les consoles",
+                platforms_path,
+                class: "btn btn-access text-white py-3 rounded-pill",
+                aria: { label: "Voir les consoles" } %>
+
+    <%= link_to "Ajouter un jeu",
+                new_game_path,
+                class: "btn btn-add text-white py-3 rounded-pill",
+                aria: { label: "Ajouter un nouveau jeu" } %>
+
+    <%= link_to "Voir les studios",
+                studios_path,
+                class: "btn btn-access text-white py-3 rounded-pill",
+                aria: { label: "Voir les studios" } %>
+  </div>
 
     <% @games.each do |game| %>
       <div class="card-game" data-controller="toggle" data-action="click->toggle#toggle"  aria-labelledby="game-title">
@@ -32,20 +48,4 @@
       </div>
     <% end %>
 
-  <div class="card-buttons">
-    <%= link_to "Voir les consoles",
-                platforms_path,
-                class: "btn btn-access text-white py-3 rounded-pill",
-                aria: { label: "Voir les consoles" } %>
-
-    <%= link_to "Ajouter un jeu",
-                new_game_path,
-                class: "btn btn-add text-white py-3 rounded-pill",
-                aria: { label: "Ajouter un nouveau jeu" } %>
-
-    <%= link_to "Voir les studios",
-                studios_path,
-                class: "btn btn-access text-white py-3 rounded-pill",
-                aria: { label: "Voir les studios" } %>
-  </div>
 </div>

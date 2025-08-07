@@ -12,3 +12,36 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body.home-background {
+  background: url('home_background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.home-overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* assombrit légèrement le fond */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.home-content {
+  color: white;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
