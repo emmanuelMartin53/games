@@ -1,13 +1,11 @@
 <% content_for :body_class, "home-background" %>
-
-<div class="home-overlay">
-  <div class="home-content">
+<div class="card">
+  <div class="blur-overlay">
     <h1 class="display-4 fw-bold mb-5">Bienvenue sur GameZone</h1>
-
     <div class="d-grid gap-4 col-8 col-md-4 mx-auto">
-      <%= link_to "🎮 Découvrir les Jeux", games_path, class: "btn btn-gradient btn-lg rounded-pill py-3" %>
-      <%= link_to "🏢 Voir les Studios", studios_path, class: "btn btn-success btn-lg rounded-pill py-3" %>
-      <%= link_to "🕹️ Explorer les Plateformes", platforms_path, class: "btn btn-info btn-lg rounded-pill py-3 text-white" %>
+      <%= link_to "🎮 Jeux", games_path, class: "btn btn-gradient-blue btn-lg rounded-pill py-3" %>
+      <%= link_to "🏢 Studios", studios_path, class: "btn btn-gradient-gray btn-lg rounded-pill py-3" %>
+      <%= link_to "🕹️ Plateformes", platforms_path, class: "btn btn-info btn-lg rounded-pill py-3 text-white" %>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
+  padding-bottom: 180px;
 
   .card-title {
     font-size: 2rem;
@@ -18,7 +19,7 @@
 
 
   // 🕹️ Carte d'un jeu/console
-  .card-game, .card-studio, .card-platform {
+  .card-game, .card-studio, .card-platform, .card-builder {
     background-color: $color-light-gray;
     border: 1px solid $color-border;
     border-radius: 12px;
@@ -34,7 +35,8 @@
 
     .card-game-title,
     .card-studio-title,
-    .card-platform-title {
+    .card-platform-title
+    .card-builder-title {
       text-align: center;
       font-weight: bold;
       margin-bottom: 1.5rem;
@@ -80,6 +82,7 @@
         justify-content: flex-end;
         flex: 0 0 auto;
         padding-left: 1rem;
+        text-transform: uppercase;
       }
     } // fin .card-game-infos
   } // fin .card-game
@@ -110,6 +113,8 @@
     gap: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: large;
 
     .btn {
       min-width: 150px;
@@ -127,12 +132,18 @@
     }
   }
 
-  .card-buttons-sticky {
-  position: sticky;
-  bottom: 0;
-  background-color: white;
-  padding: 10px;
-  z-index: 100;
+
+
+  .card-buttons-sticky-top {
+    position: sticky;
+    top: 0;
+    background-color: white; /* ou selon ton design */
+    padding: 1rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
   // 📱 Responsive design

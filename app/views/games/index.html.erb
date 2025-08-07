@@ -1,8 +1,8 @@
 <div class="card" aria-labelledby="games-title">
   <h1 class="card-title">Mes jeux</h1>
 
-  <div class="card-buttons card-buttons-sticky">
-    <%= link_to "Voir les consoles",
+  <div class="card-buttons card-buttons-sticky-top">
+    <%= link_to "Consoles",
                 platforms_path,
                 class: "btn btn-access text-white py-3 rounded-pill",
                 aria: { label: "Voir les consoles" } %>
@@ -12,7 +12,7 @@
                 class: "btn btn-add text-white py-3 rounded-pill",
                 aria: { label: "Ajouter un nouveau jeu" } %>
 
-    <%= link_to "Voir les studios",
+    <%= link_to "Studios",
                 studios_path,
                 class: "btn btn-access text-white py-3 rounded-pill",
                 aria: { label: "Voir les studios" } %>
@@ -41,11 +41,12 @@
           <div class="card-link-right">
             <%= link_to game.title,
                         game_path(game),
-                        class: "btn btn-gradient text-white py-3 rounded-pill",
+                        class: "btn btn-gradient-blue text-white py-3 rounded-pill",
                         rel: "noopener" %>
           </div>
         </div>
       </div>
     <% end %>
+
 
 </div>
