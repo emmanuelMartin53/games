@@ -1,19 +1,9 @@
-<div class="card" aria-labelledby="studios-title">
-  <div class="card-game-infos">
-    <h1 id="studios-title" class="card-title"><%= @platform.name.upcase%></h1>
-        <% @platform.games.each do |game| %>
-              <div class="card">
-                <div class="card-game">
-                  <h3 class="card-game-title"><%= game.title %></h3>
-                  <p class="card-game-type"><%= game.type_game%></p>
-                  <p class="description"><%= sanitize(game.description) %></p>
-                  <div class="card-buttons">
-                <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient text-white py-3 rounded-pill" %>
-              </div>
-            </div>
-          <% end %>
+<div class="card" aria-labelledby="card-platform-title">
+  <div class="card-header">
+    <h1 id="platform-title" class="card-title"><%= @platform.name.upcase %></h1>
   </div>
-  <div class="card-buttons">
+
+  <div class="card-buttons card-buttons-sticky-top">
     <%= link_to "Modifier", edit_platform_path(@platform),
                 class: "btn btn-add text-white py-3 rounded-pill",
                 aria: { label: "Modifier la plateforme #{@platform.name}" } %>
@@ -22,4 +12,30 @@
                 class: "btn btn-access text-white py-3 rounded-pill",
                 aria: { label: "Voir la liste des studios" } %>
   </div>
+
+  <div>
+    <% @platform.games.each do |game| %>
+      <div class="card-game">
+        <div>
+          <h3 class="card-game-title"><%= game.title %></h3>
+
+          <div class="card-game-types">
+            <% game.game_types.each do |type| %>
+              <span class="badge bg-primary text-white me-1 px-2 py-1 rounded">
+                <%= type.name %>
+              </span>
+            <% end %>
+          </div>
+
+          <p class="description text-muted mb-4"><%= sanitize(game.description) %></p>
+        </div>
+
+        <div class="card-buttons">
+          <%= link_to "Voir le jeu", game_path(game),
+                      class: "btn btn-gradient text-white py-2 px-4 rounded-pill w-full text-center" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>

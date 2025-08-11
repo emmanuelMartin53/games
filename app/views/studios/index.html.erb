@@ -8,7 +8,7 @@
   </div>
 
   <% @studios.each do |studio| %>
-    <div class="card-game" data-controller="toggle">
+    <div class="card-studio" data-controller="toggle">
           <h4 data-action="click->toggle#toggle" class="card-studio-title" style="cursor: pointer;">
             <%= studio.name %>
           </h4>
