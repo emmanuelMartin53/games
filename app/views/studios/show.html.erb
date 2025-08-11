@@ -1,6 +1,6 @@
-<div class="card">
-  <div class="card-game-infos">
-    <h1 id="studios-title" class="card-title"><strong><%= @studio.name.upcase %></strong></h1>
+<div class="card" aria-labelledby="card-studio-title">
+  <div class="card-header">
+    <h1 id="platform-title" class="card-title"><%= @studio.name.upcase %></h1>
     <div><%= sanitize(@studio.description) %></div>
     <p><%= @studio.postal_address %></p>
     <p><%= @studio.origin_country %></p>
@@ -22,21 +22,30 @@
     <% if @studio.games.any? %>
       <div>
         <% @studio.games.each do |game| %>
-          <div class="card card-game">
+          <div class="card-game">
+            <div>
             <h3 class="card-game-title"><%= game.title %></h3>
 
-            <p class="card-game-type"><%= game.type_names %></p>
-            <p class="description"><%= sanitize(game.description) %></p>
-
-            <div class="card-buttons">
-              <%= link_to "Voir le jeu", game_path(game),
-                          class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
+            <div class="card-game-types">
+              <% game.game_types.each do |type|%>
+                <span class="badge bg-primary text-white me-1 px-2 py-1 rounded">
+                  <%=type.name%>
+                </span>
+              <%end%>
             </div>
+            <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+              <div class="card-buttons">
+                <%= link_to "Voir le jeu", game_path(game),
+                            class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
+              </div>
+
           </div>
+        </div>
         <% end %>
-      </div>
-    <% else %>
-      <p>Aucun jeu développé.</p>
-    <% end %>
+        
+      <% else %>
+        <p>Aucun jeu développé.</p>
+      <% end %>
+              </div>
   </div>
 </div>
