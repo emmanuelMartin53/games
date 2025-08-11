@@ -1,0 +1,28 @@
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.badge-rpg {
+  background-color: $color-accent;
+}
+
+.badge-aventure {
+  background-color: $blue;
+}
+
+.badge-action {
+  background-color: $orange-dark;
+}
+
+.badge-combat {
+  background-color: $orange-light;
+}
+
+.badge-sport {
+  background-color: $yellow;
+}

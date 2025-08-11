@@ -25,24 +25,16 @@
           <div class="card-game">
             <div>
             <h3 class="card-game-title"><%= game.title %></h3>
-
-            <div class="card-game-types">
-              <% game.game_types.each do |type|%>
-                <span class="badge bg-primary text-white me-1 px-2 py-1 rounded">
-                  <%=type.name%>
-                </span>
-              <%end%>
-            </div>
+             <%= render partial: "shared/badges", locals: {game: game}%>
             <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
               <div class="card-buttons">
                 <%= link_to "Voir le jeu", game_path(game),
                             class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
               </div>
-
           </div>
         </div>
         <% end %>
-        
+
       <% else %>
         <p>Aucun jeu développé.</p>
       <% end %>

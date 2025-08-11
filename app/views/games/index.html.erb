@@ -25,7 +25,7 @@
           <!--<%= cl_image_tag("https://res-console.cloudinary.com/dfixvgj1a/thumbnails/v1/image/upload/v1754307086/aGhpZ29rZWNnOWFwbjlmeGNlcGE=/drilldown",
             width: 100, height: 100, crop: :fill) %> -->
           <div>
-            <p class="card-game-type"><%= game.type_names%></p>
+            <%= render partial: "shared/badges", locals: {game: game}%>
             <p><%= sanitize(game.description) %></p>
             <ul>
               <li><%= pluralize(game.min_player, 'joueur') %></li>
