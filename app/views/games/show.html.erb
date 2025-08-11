@@ -1,7 +1,8 @@
 <div class="card" aria-labelledby="games-title">
   <div class="card-game">
     <h1 id="games-title" class="card-title"><%= @game.title %></h1>
-    <p class="card-game-type"><%= @game.type_names%></p>
+
+     <%= render partial: "shared/badges", locals: {game: @game}%>
     <p>Date de sortie : <%= @game.exit_date.strftime("%d-%b-%Y") %></p>
   </div>
 
@@ -25,7 +26,7 @@
       <%= link_to "Retour aux jeux", games_path, class: "btn btn-return text-white py-3 rounded-pill"  %>
       <%= link_to "Supprimer le jeu",
           game_path(@game),
-          data: {turbo_method: :delete, turbo_confirm: "Etes vous su de vouloir supprimer ce jeu?"}%>
+          data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer ce jeu?"}%>
     </div>
   </div>
 </div>

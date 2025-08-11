@@ -1,0 +1,17 @@
+<div class="card-game-types">
+              <%game.game_types.each do |type|%>
+              <% badge_class =
+                case type.name
+                  when "RPG" then "badge-rpg"
+                  when "Aventure" then "badge-aventure"
+                  when "Action" then "badge-action"
+                  when "Combat" then "badge-combat"
+                  when "Sport" then "badge-sport"
+                  else "badge-default"
+                end
+              %>
+              <span class="badge <%=badge_class%>">
+                <%=type.name%>
+              </span>
+            <%end%>
+            </div>
