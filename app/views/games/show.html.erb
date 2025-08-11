@@ -13,7 +13,7 @@
     <div class="card-footer-link">
       <%= link_to @game.studio.name,
                   @game.studio.internet_site,
-                  class: "btn btn-gradient text-white py-3 rounded-pill",
+                  class: "btn btn-gradient-blue text-white py-3 rounded-pill",
                   target: "_blank",
                   rel: "noopener",
                   aria_label: "Site de #{@game.studio.name}" %>
@@ -25,7 +25,7 @@
       <%= link_to "Retour aux jeux", games_path, class: "btn btn-return text-white py-3 rounded-pill"  %>
       <%= link_to "Supprimer le jeu",
           game_path(@game),
-          data: {turbo_method: :delete, turbo_confirm: "Etes vous su de vouloir supprimer ce jeu?"}%>
+          data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer ce jeu?"}%>
     </div>
   </div>
 </div>

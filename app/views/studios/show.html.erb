@@ -1,39 +1,42 @@
 <div class="card">
   <div class="card-game-infos">
     <h1 id="studios-title" class="card-title"><strong><%= @studio.name.upcase %></strong></h1>
-    <div><%=sanitize(@studio.description)%></div>
-        <p><%= @studio.postal_address %></p>
-        <p><%= @studio.origin_country %></p>
+    <div><%= sanitize(@studio.description) %></div>
+    <p><%= @studio.postal_address %></p>
+    <p><%= @studio.origin_country %></p>
+  </div>
+
+  <div class="card-buttons card-buttons-sticky-top">
+    <%= link_to "Site officiel", @studio.internet_site,
+                class: "btn btn-gradient-blue text-white py-3 rounded-pill",
+                target: "_blank", rel: "noopener" %>
+    <%= link_to "Modifier", edit_studio_path(@studio),
+                class: "btn btn-add text-white py-3 rounded-pill" %>
+    <%= link_to "Voir les studios", studios_path,
+                class: "btn btn-access text-white py-3 rounded-pill" %>
   </div>
 
   <div class="card">
     <h2>Jeux développés :</h2>
-      <% if @studio.games.any? %>
-        <div>
-          <% @studio.games.each do |game| %>
-            <div class="card">
-              <div class="card-game-infos">
-                <h3 class="card-title"><%= game.title %></h3>
-                <p class="card-game-type"><%= game.type_names%></p>
-                <p class="description"><%= sanitize(game.description) %></p>
-              </div>
 
-              <div class="card-buttons">
-                <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient text-white py-3 rounded-pill" %>
-              </div>
+    <% if @studio.games.any? %>
+      <div>
+        <% @studio.games.each do |game| %>
+          <div class="card card-game">
+            <h3 class="card-game-title"><%= game.title %></h3>
+
+            <p class="card-game-type"><%= game.type_names %></p>
+            <p class="description"><%= sanitize(game.description) %></p>
+
+            <div class="card-buttons">
+              <%= link_to "Voir le jeu", game_path(game),
+                          class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
             </div>
-          <% end %>
-
-      <% else %>
-        <p>Aucun jeu développé.</p>
-      <% end %>
-    </div>
-    <div class="card-buttons">
-      <%= link_to "#{@studio.name}", @studio.internet_site, class: "btn btn-gradient-blue text-white py-3 rounded-pill", target: "_blank", rel: "noopener" %>
-      <%= link_to "Modifier", edit_studio_path, class: "btn btn-add text-white py-3 rounded-pill" %>
-      <%= link_to "Voir les studios ", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Aucun jeu développé.</p>
+    <% end %>
   </div>
-
-
 </div>

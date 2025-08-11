@@ -7,6 +7,7 @@
     font-weight: bold;
     transition: background 0.3s ease;
     display: inline-block;
+    text-transform: uppercase;
 
     &.btn-gradient-blue {
       background: $btn-gradient-blue;

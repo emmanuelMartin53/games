@@ -1,6 +1,12 @@
 <div class="card">
   <h1 class="card-title">Mes consoles</h1>
 
+  <div class="card-buttons card-buttons-sticky-top">
+    <%= link_to "Studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+    <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-add text-white py-3 rounded-pill" %>
+    <%= link_to "Jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+  </div>
+
   <% @platforms.each do |platform| %>
     <div class="card-platform" data-controller="toggle">
           <h4 class="card-platform-title" data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h4>
@@ -11,18 +17,13 @@
         </div>
 
         <div class="card-link-right">
-          <%= link_to "Voir la console",
+          <%= link_to "voir la console",
                       platform_path(platform),
-                      class: "btn btn-gradient text-white py-3 rounded-pill",
+                      class: "btn btn-gradient-blue text-white py-3 rounded-pill",
                       rel: "noopener" %>
         </div>
       </div>
     </div>
   <% end %>
 
-  <div class="card-buttons">
-    <%= link_to "Voir les studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-add text-white py-3 rounded-pill" %>
-    <%= link_to "Voir les jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-  </div>
 </div>
