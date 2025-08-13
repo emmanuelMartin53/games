@@ -4,27 +4,30 @@
   </div>
 
   <div class="card-buttons card-buttons-sticky-top">
-    <%= link_to "Modifier", edit_platform_path(@platform),
-                class: "btn btn-add text-white py-3 rounded-pill",
-                aria: { label: "Modifier la plateforme #{@platform.name}" } %>
+    <%= render "shared/action_button",
+                text:"Modifier",
+                path: edit_platform_path(@platform),
+                variant: "btn-add",
+                label: "Modifier la plateforme #{@platform.name}"  %>
 
     <%= link_to "Voir les studios", studios_path,
                 class: "btn btn-access text-white py-3 rounded-pill",
                 aria: { label: "Voir la liste des studios" } %>
   </div>
-
-  <div>
-        <% @platform.games.each do |game| %>
-              <div class="card-game">
-                <div>
-                  <h3 class="card-game-title"><%= game.title %></h3>
-                   <%= render partial: "shared/badges", locals: {game: game}%>
-                  <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
-                  <div class="card-buttons">
-                    <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
-                  </div>
+    <% if @platform.games.any? %>
+      <div>
+            <% @platform.games.each do |game| %>
+                  <div class="card-game">
+                    <div>
+                      <h3 class="card-game-title"><%= game.title %></h3>
+                      <%= render partial: "shared/badges", locals: {game: game}%>
+                      <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+                      <div class="card-buttons">
+                        <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
+                      </div>
+                    </div>
                 </div>
-            </div>
-          <% end %>
-  </div>
+              <% end %>
+      </div>
+    <%end%>
 </div>

@@ -2,9 +2,21 @@
   <h1 class="card-title">Mes consoles</h1>
 
   <div class="card-buttons card-buttons-sticky-top">
-    <%= link_to "Studios", studios_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    <%= link_to "Ajouter une console", new_platform_path, class: "btn btn-add text-white py-3 rounded-pill" %>
-    <%= link_to "Jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
+    <%= render "shared/action_button",
+                  text: "Studios",
+                  path: studios_path,
+                  variant: "btn-access",
+                  label: "Studios" %>
+    <%= render "shared/action_button",
+                   text: "Ajouter une console",
+                   path: new_platform_path,
+                   variant: "btn-add",
+                   label:"Ajouter une console" %>
+    <%= render "shared/action_button",
+                    text: "Jeux",
+                    path: games_path,
+                    variant: "btn-access",
+                    label: "Jeux" %>
   </div>
 
   <% @platforms.each do |platform| %>
@@ -17,9 +29,11 @@
         </div>
 
         <div class="card-link-right">
-          <%= link_to "voir la console",
-                      platform_path(platform),
-                      class: "btn btn-gradient-blue text-white py-3 rounded-pill",
+          <%= render "shared/action_button",
+                      text: "Voir la console",
+                      path: platform_path(platform),
+                      variant: " btn-gradient-blue",
+                      label: "Voir la console",
                       rel: "noopener" %>
         </div>
       </div>

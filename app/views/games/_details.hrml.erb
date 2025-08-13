@@ -1,0 +1,42 @@
+<div class="card" aria-labelledby="games-title">
+  <div class="card-game">
+    <h1 id="games-title" class="card-title"><%= game.title %></h1>
+
+    <%= render partial: "shared/badges", locals: { game: game } %>
+    <p>Date de sortie : <%= l(game.exit_date, format: "%d-%b-%Y") %></p>
+  </div>
+
+  <div class="card-game">
+    <p class="description"><%= sanitize(game.description) %></p>
+  </div>
+
+  <div class="card-game-footer">
+    <div class="card-footer-link">
+      <%= render "shared/action_button",
+                  text: game.studio.name,
+                  path: game.studio.internet_site,
+                  variant: "btn-gradient-blue",
+                  target: "_blank",
+                  rel: "noopener",
+                  label: "Site de #{game.studio.name}" %>
+    </div>
+    <div class="card-footer-link">
+      <%= render "shared/action_button",
+                  text: "Modifier",
+                  path: edit_game_path(game),
+                  variant: "btn btn-add",
+                  label: "Modifier" %>
+    </div>
+    <div class="card-footer-link">
+      <%= render "shared/action_button",
+                  text: "Retour aux jeux",
+                  path: games_path,
+                  variant: "btn btn-return" %>
+
+      <%= link_to "Supprimer le jeu",
+                  game_path(game),
+                  data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce jeu ?" } %>
+    </div>
+  </div>
+</div>
+

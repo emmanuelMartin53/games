@@ -54,6 +54,7 @@ gem "cloudinary"
 gem "geocoder"
 gem "country_select"
 gem 'rails-i18n'
+gem "view_component", "~> 3.14"
 
 
 group :development, :test do

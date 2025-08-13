@@ -2,20 +2,23 @@
   <h1 class="card-title">Mes jeux</h1>
 
   <div class="card-buttons card-buttons-sticky-top">
-    <%= link_to "Consoles",
-                platforms_path,
-                class: "btn btn-access text-white py-3 rounded-pill",
-                aria: { label: "Voir les consoles" } %>
+    <%= render "shared/action_button",
+                text: "Consoles",
+                path: platforms_path,
+                variant: "btn-access",
+                label:  "Voir les consoles"%>
 
-    <%= link_to "Ajouter un jeu",
-                new_game_path,
-                class: "btn btn-add text-white py-3 rounded-pill",
-                aria: { label: "Ajouter un nouveau jeu" } %>
+    <%= render "shared/action_button",
+                text: "Ajouter un jeu",
+                path: new_game_path,
+                variant: "btn-add",
+                label: "Ajouter un nouveau jeu"  %>
 
-    <%= link_to "Studios",
-                studios_path,
-                class: "btn btn-access text-white py-3 rounded-pill",
-                aria: { label: "Voir les studios" } %>
+    <%= render "shared/action_button",
+                text: "Studios",
+                path: studios_path,
+                variant: "btn-access",
+                label: "Voir les studios"%>
   </div>
 
     <% @games.each do |game| %>
@@ -39,9 +42,11 @@
           </div>
 
           <div class="card-link-right">
-            <%= link_to game.title,
-                        game_path(game),
-                        class: "btn btn-gradient-blue text-white py-3 rounded-pill",
+            <%= render "shared/action_button",
+                        text: game.title,
+                        path: game_path(game),
+                        variant: "btn-gradient-blue",
+                        label: game.title,
                         rel: "noopener" %>
           </div>
         </div>
