@@ -1,43 +1,30 @@
 <div class="card">
   <h1 class="card-title">Mes consoles</h1>
 
-  <div class="card-buttons card-buttons-sticky-top">
-    <%= render "shared/action_button",
-                  text: "Studios",
-                  path: studios_path,
-                  variant: "btn-access",
-                  label: "Studios" %>
-    <%= render "shared/action_button",
-                   text: "Ajouter une console",
-                   path: new_platform_path,
-                   variant: "btn-add",
-                   label:"Ajouter une console" %>
-    <%= render "shared/action_button",
-                    text: "Jeux",
-                    path: games_path,
-                    variant: "btn-access",
-                    label: "Jeux" %>
-  </div>
+  <%= render "shared/action_buttons", buttons: [
+        { text: "Consoles", path: platforms_path, variant: "btn-access", label: "Voir les consoles" },
+        { text: "Ajouter un jeu", path: new_game_path, variant: "btn-add", label: "Ajouter un nouveau jeu" },
+        { text: "Studios", path: studios_path, variant: "btn-access", label: "Voir les studios" }
+  ] %>
 
   <% @platforms.each do |platform| %>
     <div class="card-platform" data-controller="toggle">
-          <h4 class="card-platform-title" data-action="click->toggle#toggle" style="cursor: pointer;"><%= platform.name.upcase %></h4>
+      <h4 class="card-platform-title" data-action="click->toggle#toggle" style="cursor: pointer;">
+        <%= platform.name.upcase %>
+      </h4>
+
       <div class="card-game-infos" data-toggle-target="content" hidden>
-        <div>
-          <p><%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
-          <p><%= platform.builder.name %></p>
-        </div>
+        <p>Date de sortie : <%= platform.exit_date.strftime("%d-%B-%Y") if platform.exit_date %></p>
+        <p>Constructeur : <%= platform.builder.name %></p>
 
         <div class="card-link-right">
           <%= render "shared/action_button",
                       text: "Voir la console",
                       path: platform_path(platform),
-                      variant: " btn-gradient-blue",
-                      label: "Voir la console",
-                      rel: "noopener" %>
+                      variant: "btn-gradient-blue",
+                      label: "Voir la console" %>
         </div>
       </div>
     </div>
   <% end %>
-
 </div>

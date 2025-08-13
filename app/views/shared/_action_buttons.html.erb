@@ -1,0 +1,11 @@
+<div class="card-buttons card-buttons-sticky-top">
+  <% buttons.each do |btn| %>
+    <%= render "shared/action_button",
+                text: btn[:text],
+                path: btn[:path],
+                variant: btn[:variant],
+                label: btn[:label],
+                target: btn[:target],
+                rel: btn[:rel]%>
+  <%end%>
+</div>

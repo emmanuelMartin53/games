@@ -1,5 +1,18 @@
-<%= link_to text,
-            path,
-            class: "btn #{variant} text-white py-3 rounded-pill",
-            target: " ",
-            aria: {label: label} %>
+<%
+  # Récupération des variables locales avec fallback
+  btn_text    = local_assigns[:text]    || "Bouton"
+  btn_path    = local_assigns[:path]    || "#"
+  btn_variant = local_assigns[:variant] || "btn-default"
+  btn_label   = local_assigns[:label]   || btn_text
+  btn_target  = local_assigns[:target]
+  btn_rel     = local_assigns[:rel]
+
+  html_options = {
+    class: "btn #{btn_variant} text-white py-3 rounded-pill",
+    aria: { label: btn_label }
+  }
+  html_options[:target] = btn_target if btn_target
+  html_options[:rel]    = btn_rel    if btn_rel
+%>
+
+<%= link_to btn_text, btn_path, html_options %>

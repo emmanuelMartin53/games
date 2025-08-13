@@ -10,18 +10,22 @@
                 variant: "btn-add",
                 label: "Modifier la plateforme #{@platform.name}"  %>
 
-    <%= link_to "Voir les studios", studios_path,
-                class: "btn btn-access text-white py-3 rounded-pill",
-                aria: { label: "Voir la liste des studios" } %>
+    <%= render "shared/action_button",
+                text: "Voir les studios",
+                path: studios_path,
+                variant: "btn-access",
+                label: "Voir la liste des studios"  %>
   </div>
     <% if @platform.games.any? %>
       <div>
             <% @platform.games.each do |game| %>
-                  <div class="card-game">
+                  <div class="card-game" data-controller="toggle">
                     <div>
-                      <h3 class="card-game-title"><%= game.title %></h3>
-                      <%= render partial: "shared/badges", locals: {game: game}%>
-                      <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+                      <h4 class="card-game-title"data-action="click->toggle#toggle" ><%= game.title %></h4>
+                      <div>
+                          <%= render partial: "shared/badges", locals: {game: game}%>
+                          <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+                      </div>
                       <div class="card-buttons">
                         <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
                       </div>
