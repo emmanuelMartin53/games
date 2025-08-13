@@ -1,4 +1,5 @@
-<div class="card" aria-labelledby="card-studio-title">
+<div class="card-show" aria-labelledby="card-studio-title">
+  <!-- Header -->
   <div class="card-header">
     <h1 id="platform-title" class="card-title"><%= @studio.name.upcase %></h1>
     <div><%= sanitize(@studio.description) %></div>
@@ -6,36 +7,31 @@
     <p><%= @studio.origin_country %></p>
   </div>
 
-  <div class="card-buttons card-buttons-sticky-top">
-    <%= link_to "Site officiel", @studio.internet_site,
-                class: "btn btn-gradient-blue text-white py-3 rounded-pill",
-                target: "_blank", rel: "noopener" %>
-    <%= link_to "Modifier", edit_studio_path(@studio),
-                class: "btn btn-add text-white py-3 rounded-pill" %>
-    <%= link_to "Voir les studios", studios_path,
-                class: "btn btn-access text-white py-3 rounded-pill" %>
+  <!-- Boutons d'action -->
+  <div class="card-buttons">
+    <%= render "shared/action_buttons", buttons: [
+        { text: "Site officiel", path: @studio.internet_site, variant: "btn-gradient-blue", label: "Site officiel", target:"_blank", rel: "noopener" },
+        { text: "Modifier", path: edit_studio_path(@studio), variant: "btn-add", label: "Modifier" },
+        { text: "Studios", path: studios_path, variant: "btn-access", label: "Voir les studios" }
+    ] %>
   </div>
 
-    <h2>Jeux développés :</h2>
-
-    <% if @studio.games.any? %>
-      <div>
-        <% @studio.games.each do |game| %>
-          <div class="card-game">
-            <div>
-            <h3 class="card-game-title"><%= game.title %></h3>
-             <%= render partial: "shared/badges", locals: {game: game}%>
-            <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
-              <div class="card-buttons">
-                <%= link_to "Voir le jeu", game_path(game),
-                            class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
-              </div>
+  <!-- Liste des jeux -->
+  <% if @studio.games.any? %>
+    <div class="card-games-list">
+      <% @studio.games.each do |game| %>
+        <div class="card-game">
+          <h4 class="card-game-title"><%= game.title %></h4>
+          <%= render partial: "shared/badges", locals: { game: game } %>
+          <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+          <div class="card-buttons">
+            <%= link_to "Voir le jeu", game_path(game),
+                        class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
           </div>
         </div>
-        <% end %>
-
-      <% else %>
-        <p>Aucun jeu développé.</p>
       <% end %>
     </div>
+  <% else %>
+    <p class="text-center">Aucun jeu développé.</p>
+  <% end %>
 </div>

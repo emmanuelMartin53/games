@@ -1,37 +1,32 @@
-<div class="card" aria-labelledby="card-platform-title">
+<div class="card-show" aria-labelledby="card-platform-title">
+  <!-- Header -->
   <div class="card-header">
     <h1 id="platform-title" class="card-title"><%= @platform.name.upcase %></h1>
   </div>
 
-  <div class="card-buttons card-buttons-sticky-top">
-    <%= render "shared/action_button",
-                text:"Modifier",
-                path: edit_platform_path(@platform),
-                variant: "btn-add",
-                label: "Modifier la plateforme #{@platform.name}"  %>
-
-    <%= render "shared/action_button",
-                text: "Voir les studios",
-                path: studios_path,
-                variant: "btn-access",
-                label: "Voir la liste des studios"  %>
+  <!-- Boutons d'action -->
+  <div class="card-buttons">
+    <%= render "shared/action_buttons", buttons: [
+          { text: "Modifier", path: edit_platform_path(@platform), variant: "btn-add", label: "Modifier la plateforme #{@platform.name}" },
+          { text: "Studios", path: studios_path, variant: "btn-access", label: "Voir les studios" }
+    ] %>
   </div>
-    <% if @platform.games.any? %>
-      <div>
-            <% @platform.games.each do |game| %>
-                  <div class="card-game" data-controller="toggle">
-                    <div>
-                      <h4 class="card-game-title"data-action="click->toggle#toggle" ><%= game.title %></h4>
-                      <div>
-                          <%= render partial: "shared/badges", locals: {game: game}%>
-                          <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
-                      </div>
-                      <div class="card-buttons">
-                        <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
-                      </div>
-                    </div>
-                </div>
-              <% end %>
-      </div>
-    <%end%>
+
+  <!-- Liste des jeux -->
+  <% if @platform.games.any? %>
+    <div class="card-games-list">
+      <% @platform.games.each do |game| %>
+        <div class="card-game" data-controller="toggle">
+          <h4 class="card-game-title" data-action="click->toggle#toggle"><%= game.title %></h4>
+          <div data-toggle-target="content" hidden>
+            <%= render partial: "shared/badges", locals: {game: game} %>
+            <p class="description text-muted py-3 mb-4"><%= sanitize(game.description) %></p>
+            <div class="card-buttons">
+              <%= link_to "Voir le jeu", game_path(game), class: "btn btn-gradient-blue text-white py-3 rounded-pill" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

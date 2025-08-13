@@ -1,29 +1,18 @@
 <div class="card" aria-labelledby="games-title">
-  <h1 class="card-title">Mes jeux</h1>
+    <h1 class="card-title">Mes jeux</h1>
 
-  <div class="card-buttons card-buttons-sticky-top">
-    <%= render "shared/action_button",
-                text: "Consoles",
-                path: platforms_path,
-                variant: "btn-access",
-                label:  "Voir les consoles"%>
 
-    <%= render "shared/action_button",
-                text: "Ajouter un jeu",
-                path: new_game_path,
-                variant: "btn-add",
-                label: "Ajouter un nouveau jeu"  %>
-
-    <%= render "shared/action_button",
-                text: "Studios",
-                path: studios_path,
-                variant: "btn-access",
-                label: "Voir les studios"%>
+  <div class="card-buttons">
+    <%= render "shared/action_buttons", buttons: [
+          { text: "Consoles", path: platforms_path, variant: "btn-access", label: "Voir les consoles" },
+          { text: "Ajouter un jeu", path: new_game_path, variant: "btn-add", label: "Ajouter un nouveau jeu" },
+          { text: "Studios", path: studios_path, variant: "btn-access", label: "Voir les studios" }
+    ] %>
   </div>
 
     <% @games.each do |game| %>
-      <div class="card-game" data-controller="toggle" data-action="click->toggle#toggle"  aria-labelledby="game-title">
-            <h4 class="card-game-title cursor-pointer" ><%= game.title %></h4>
+      <div class="card-game" data-controller="toggle"  aria-labelledby="game-title">
+            <h4 class="card-game-title cursor-pointer" data-action="click->toggle#toggle"><%= game.title %></h4>
         <div class="card-game-infos" data-toggle-target="content" hidden>
           <!--<%= cl_image_tag("https://res-console.cloudinary.com/dfixvgj1a/thumbnails/v1/image/upload/v1754307086/aGhpZ29rZWNnOWFwbjlmeGNlcGE=/drilldown",
             width: 100, height: 100, crop: :fill) %> -->
@@ -52,6 +41,7 @@
         </div>
       </div>
     <% end %>
+
 
 
 </div>

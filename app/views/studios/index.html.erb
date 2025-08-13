@@ -1,11 +1,11 @@
 <div class="card">
   <h1 class="card-title"><strong>STUDIOS</strong></h1>
 
-  <div class="card-buttons card-buttons-sticky-top">
-    <%= link_to "consoles", platforms_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-    <%= link_to "Ajouter un studio", new_studio_path, class: "btn btn-add text-white py-3 rounded-pill" %>
-    <%= link_to "jeux", games_path, class: "btn btn-access text-white py-3 rounded-pill" %>
-  </div>
+  <%= render "shared/action_buttons", buttons: [
+        { text: "Consoles", path: platforms_path, variant: "btn-access", label: "Voir les consoles" },
+        { text: "Ajouter un studio", path: new_studio_path, variant: "btn-add", label: "Ajouter un nouveau studio" },
+        { text: "jeux", path: games_path, variant: "btn-access", label: "jeux" }
+  ] %>
 
   <% @studios.each do |studio| %>
     <div class="card-studio" data-controller="toggle">

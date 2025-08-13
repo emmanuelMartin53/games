@@ -1,14 +1,20 @@
-// 📦 Conteneur principal
+// =======================
+// Carte classique (index, listing)
+// =======================
 .card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   background: $color-white;
   border-radius: 16px;
   box-shadow: $shadow-default;
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 900px;
-  padding-bottom: 180px;
+  max-width: 1200px;
+
 
   .card-title {
+    grid-column: 1 / -1;
     font-size: 2.5rem;
     color: $color-dark;
     margin-bottom: 1.5rem;
@@ -17,102 +23,49 @@
     text-transform: uppercase;
   }
 
-
-  // 🕹️ Carte d'un jeu/console
-  .card-game, .card-studio, .card-platform, .card-builder {
+  .card-game,
+  .card-studio,
+  .card-platform,
+  .card-builder {
     background-color: $color-light-gray;
     border: 1px solid $color-border;
     border-radius: 12px;
     padding: 1rem;
-    margin-bottom: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: scale(1.02);
       box-shadow: $shadow-hover;
-
     }
 
     .card-game-title,
     .card-studio-title,
-    .card-platform-title
+    .card-platform-title,
     .card-builder-title {
       text-align: center;
       font-weight: bold;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
+      margin-bottom: 1rem;
       text-transform: uppercase;
     }
 
-    .card-game-types {
-      font-style: italic;
-      font-weight: 700;
-
-    }
-
-
     .card-game-infos {
       display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      flex-wrap: wrap;
-
-      > div:first-child {
-        flex: 1;
-      }
-
-      h2 {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.5rem;
-        color: $color-dark;
-      }
+      flex-direction: column;
+      gap: 0.5rem;
 
       p {
         margin: 0.2rem 0;
         color: $color-medium;
       }
-
-      .description {
-        font-style: italic;
-      }
-
-      .card-link-right {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        flex: 0 0 auto;
-        padding-left: 1rem;
-        text-transform: uppercase;
-      }
-    } // fin .card-game-infos
-  } // fin .card-game
-
-  // ⬇️ Pied de carte pour les boutons studio / retour
-  .card-game-footer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-
-    div {
-      flex: 1;
-      min-width: 150px;
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
     }
   }
 
-  // 🎮 Boutons principaux
   .card-buttons {
+    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin: 1rem 0;
     text-transform: uppercase;
     font-size: large;
 
@@ -124,51 +77,107 @@
       &:hover {
         transform: translateY(-2px);
       }
+    }
+  }
 
-      &:focus {
-        outline: 2px solid $color-accent;
-        outline-offset: 2px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    .card-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .btn {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  }
+}
+
+
+.card-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 3px solid $color-border;
+    background: $color-light-gray;
+    border-radius: 16px 16px 0 0;
+}
+
+// =======================
+// Carte show (pleine largeur)
+// =======================
+.card-show {
+  max-width: 100%;
+  width: 100%;
+  margin: 2rem auto;
+  background: $color-white;
+  border-radius: 16px;
+  box-shadow: $shadow-default;
+  padding: 2rem;
+
+  // Header
+  .card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  // Boutons sous le header
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  // Liste des jeux : grille 3 colonnes
+  .card-games-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    .card-game {
+      background-color: $color-light-gray;
+      border: 1px solid $color-border;
+      border-radius: 12px;
+      padding: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: $shadow-hover;
+      }
+
+      .card-game-title {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .description {
+        color: $color-medium;
+        font-size: 0.9rem;
       }
     }
   }
 
-
-
-  .card-buttons-sticky-top {
-    position: sticky;
-    top: 0;
-    background-color: white; /* ou selon ton design */
-    padding: 1rem;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-  // 📱 Responsive design
+  // Responsive mobile
   @media (max-width: 768px) {
-    padding: 1rem;
-    margin: 1rem auto;
-    max-width: 95vw;
-
-    .card-buttons {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.75rem;
-    }
-
-    .card-buttons .btn {
-      min-width: auto;
-      width: 100%;
-    }
-
-    .card-game-footer {
-      flex-direction: column;
-
-      div {
-        width: 100%;
-      }
+    .card-games-list {
+      grid-template-columns: 1fr;
     }
   }
 }
