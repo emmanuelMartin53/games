@@ -23,7 +23,8 @@
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #fafafa;
+    background-color: $color-light-gray;
+    border-radius: 12px;
   }
 
   .card-game,
@@ -64,11 +65,15 @@
   }
 
   .card-buttons {
+    position: sticky;
+    top: 0.1rem;
+    z-index: 100;
+    background: $color-white;
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 0.5rem;
+    margin: 0.1rem 0;
     text-transform: uppercase;
     font-size: large;
 
